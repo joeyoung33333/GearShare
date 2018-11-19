@@ -1,24 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4tS-aP-Z6l">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Post-->
+        <scene sceneID="y8g-qr-N4s">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="cfY-bc-hQS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rsa-pO-M8J">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTJ-JU-qAp">
+                                <rect key="frame" x="138.5" y="84" width="137" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="1A5-pp-69y"/>
+                                    <constraint firstAttribute="width" constant="137" id="zXF-tY-ucv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BTJ-JU-qAp" firstAttribute="centerX" secondItem="rsa-pO-M8J" secondAttribute="centerX" id="b8m-ff-GNN"/>
+                            <constraint firstItem="BTJ-JU-qAp" firstAttribute="top" secondItem="Kjy-IC-PGx" secondAttribute="top" constant="40" id="uvz-5b-2zI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Kjy-IC-PGx"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Post" image="camera.png" id="7Ee-ej-hjr">
+                        <color key="badgeColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mhx-Pv-v65" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1430" y="556"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="C35-cc-21L">
+            <objects>
+                <viewController id="cqc-ut-zeD" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RaQ-PZ-XFf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYH-0E-fJX">
+                                <rect key="frame" x="184" y="84" width="46" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="2tR-Vx-YZt"/>
+                                    <constraint firstAttribute="width" constant="46" id="oyg-3R-1N2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="SYH-0E-fJX" firstAttribute="centerX" secondItem="RaQ-PZ-XFf" secondAttribute="centerX" id="J9G-Jn-RNQ"/>
+                            <constraint firstItem="SYH-0E-fJX" firstAttribute="top" secondItem="ZPh-VA-bYW" secondAttribute="top" constant="40" id="lqU-V3-MU7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ZPh-VA-bYW"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Map" image="map_marker.png" id="6tB-bY-ivJ">
+                        <color key="badgeColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f6w-qy-2uH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="636" y="110"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Zfn-U4-PDu">
+            <objects>
+                <tabBarController id="4tS-aP-Z6l" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="f00-E9-Ed3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="cqc-ut-zeD" kind="relationship" relationship="viewControllers" id="c0O-fq-Wk0"/>
+                        <segue destination="cfY-bc-hQS" kind="relationship" relationship="viewControllers" id="BbC-ia-n3Y"/>
+                        <segue destination="2g4-oD-crm" kind="relationship" relationship="viewControllers" id="3no-sO-B48"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jnj-1k-1dZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1206" y="556"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="kug-A4-erN">
+            <objects>
+                <viewController id="2g4-oD-crm" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oQ1-eM-f2J">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yKc-OZ-guh">
+                                <rect key="frame" x="147.5" y="84" width="119.5" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="119.5" id="Htk-bV-KMt"/>
+                                    <constraint firstAttribute="height" constant="21" id="XDV-Mc-Ogb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="yKc-OZ-guh" firstAttribute="top" secondItem="s8r-UI-e4m" secondAttribute="top" constant="40" id="3Y3-1z-ACC"/>
+                            <constraint firstItem="yKc-OZ-guh" firstAttribute="centerX" secondItem="oQ1-eM-f2J" secondAttribute="centerX" id="AYx-ov-Lcf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="s8r-UI-e4m"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="face_ID.png" id="KXw-XT-4Ji">
+                        <color key="badgeColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cdS-wL-dla" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="636" y="1002"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera.png" width="30" height="30"/>
+        <image name="face_ID.png" width="30" height="30"/>
+        <image name="map_marker.png" width="30" height="30"/>
+    </resources>
 </document>
