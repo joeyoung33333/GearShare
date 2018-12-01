@@ -15,6 +15,7 @@
 		7CE3ADFE219CBD5200861698 /* GearShareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3ADFD219CBD5200861698 /* GearShareTests.swift */; };
 		7CE3AE09219CBD5200861698 /* GearShareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3AE08219CBD5200861698 /* GearShareUITests.swift */; };
 		7CF252D421A35B5200942399 /* Icons in Resources */ = {isa = PBXBuildFile; fileRef = 7CF252D321A35B5200942399 /* Icons */; };
+		8CF878F821A3D2E700B1E61A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CE3ADEC219CBD5000861698 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -242,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CF878F821A3D2E700B1E61A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
