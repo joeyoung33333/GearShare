@@ -15,6 +15,7 @@
 		7CE3ADFE219CBD5200861698 /* GearShareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3ADFD219CBD5200861698 /* GearShareTests.swift */; };
 		7CE3AE09219CBD5200861698 /* GearShareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3AE08219CBD5200861698 /* GearShareUITests.swift */; };
 		7CF252D421A35B5200942399 /* Icons in Resources */ = {isa = PBXBuildFile; fileRef = 7CF252D321A35B5200942399 /* Icons */; };
+		8C0552A721B333DB00BF422B /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0552A621B333DB00BF422B /* PostViewController.swift */; };
 		8CF878F821A3D2E700B1E61A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CE3ADEC219CBD5000861698 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		7CE3AE08219CBD5200861698 /* GearShareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearShareUITests.swift; sourceTree = "<group>"; };
 		7CE3AE0A219CBD5200861698 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CF252D321A35B5200942399 /* Icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Icons; sourceTree = SOURCE_ROOT; };
+		8C0552A621B333DB00BF422B /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				7CE3ADEF219CBD5200861698 /* Assets.xcassets */,
 				7CE3ADF1219CBD5200861698 /* LaunchScreen.storyboard */,
 				7CE3ADF4219CBD5200861698 /* Info.plist */,
+				8C0552A621B333DB00BF422B /* PostViewController.swift */,
 			);
 			path = GearShare;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C0552A721B333DB00BF422B /* PostViewController.swift in Sources */,
 				7CE3ADEB219CBD5000861698 /* ViewController.swift in Sources */,
 				7CE3ADE9219CBD5000861698 /* AppDelegate.swift in Sources */,
 			);
