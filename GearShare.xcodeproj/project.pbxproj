@@ -8,8 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		5D33CEFDB671B2859146EE16 /* Pods_GearShareUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3F21F5381C85FFA163C8980 /* Pods_GearShareUITests.framework */; };
-		7C3D71E121B34A4000D055B0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3D71E021B34A4000D055B0 /* SignUpViewController.swift */; };
+		7C35D4C721B34CBA000F9EB4 /* CityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C35D4C521B34CBA000F9EB4 /* CityViewController.xib */; };
+		7C35D4C821B34CBA000F9EB4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C35D4C621B34CBA000F9EB4 /* LoginViewController.swift */; };
+		7C3B783F21B48C9500A15067 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3B783E21B48C9500A15067 /* UserViewController.swift */; };
 		7C3E433221B342D600161FEC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C3E433121B342D500161FEC /* GoogleService-Info.plist */; };
+		7C5D056A21B350F300DA16C9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5D056821B350F300DA16C9 /* SignUpViewController.swift */; };
+		7C5D056B21B350F300DA16C9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5D056921B350F300DA16C9 /* MapViewController.swift */; };
+		7C5D056D21B450CE00DA16C9 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5D056C21B450CE00DA16C9 /* ResetPasswordViewController.swift */; };
+		7C90732F21B496AC00923154 /* AppUITool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C90732E21B496AC00923154 /* AppUITool.swift */; };
 		7CE3ADE9219CBD5000861698 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3ADE8219CBD5000861698 /* AppDelegate.swift */; };
 		7CE3ADEB219CBD5000861698 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3ADEA219CBD5000861698 /* ViewController.swift */; };
 		7CE3ADEE219CBD5000861698 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CE3ADEC219CBD5000861698 /* Main.storyboard */; };
@@ -45,8 +51,14 @@
 		1027D504539C962DA3A2B59B /* Pods-GearShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GearShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-GearShare/Pods-GearShare.release.xcconfig"; sourceTree = "<group>"; };
 		13B15D6B89008DA37057B401 /* Pods-GearShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GearShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GearShare/Pods-GearShare.debug.xcconfig"; sourceTree = "<group>"; };
 		62E8FB50A29738F7F63F5108 /* Pods_GearShareTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GearShareTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7C3D71E021B34A4000D055B0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		7C35D4C521B34CBA000F9EB4 /* CityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityViewController.xib; sourceTree = "<group>"; };
+		7C35D4C621B34CBA000F9EB4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7C3B783E21B48C9500A15067 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		7C3E433121B342D500161FEC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7C5D056821B350F300DA16C9 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		7C5D056921B350F300DA16C9 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		7C5D056C21B450CE00DA16C9 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		7C90732E21B496AC00923154 /* AppUITool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUITool.swift; sourceTree = "<group>"; };
 		7CE3ADE5219CBD5000861698 /* GearShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GearShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CE3ADE8219CBD5000861698 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CE3ADEA219CBD5000861698 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -134,15 +146,21 @@
 		7CE3ADE7219CBD5000861698 /* GearShare */ = {
 			isa = PBXGroup;
 			children = (
-				7C3E433121B342D500161FEC /* GoogleService-Info.plist */,
+				7C90732E21B496AC00923154 /* AppUITool.swift */,
 				7CE3ADE8219CBD5000861698 /* AppDelegate.swift */,
 				7CE3ADEA219CBD5000861698 /* ViewController.swift */,
-				7CE3ADEC219CBD5000861698 /* Main.storyboard */,
-				7C3D71E021B34A4000D055B0 /* SignUpViewController.swift */,
-				7CE3ADEF219CBD5200861698 /* Assets.xcassets */,
-				7CE3ADF1219CBD5200861698 /* LaunchScreen.storyboard */,
-				7CE3ADF4219CBD5200861698 /* Info.plist */,
 				8C0552A621B333DB00BF422B /* PostViewController.swift */,
+				7C5D056921B350F300DA16C9 /* MapViewController.swift */,
+				7C3B783E21B48C9500A15067 /* UserViewController.swift */,
+				7C35D4C621B34CBA000F9EB4 /* LoginViewController.swift */,
+				7C5D056821B350F300DA16C9 /* SignUpViewController.swift */,
+				7C5D056C21B450CE00DA16C9 /* ResetPasswordViewController.swift */,
+				7CE3ADEC219CBD5000861698 /* Main.storyboard */,
+				7CE3ADF1219CBD5200861698 /* LaunchScreen.storyboard */,
+				7C35D4C521B34CBA000F9EB4 /* CityViewController.xib */,
+				7CE3ADEF219CBD5200861698 /* Assets.xcassets */,
+				7C3E433121B342D500161FEC /* GoogleService-Info.plist */,
+				7CE3ADF4219CBD5200861698 /* Info.plist */,
 			);
 			path = GearShare;
 			sourceTree = "<group>";
@@ -190,6 +208,7 @@
 				7CE3ADE2219CBD5000861698 /* Frameworks */,
 				7CE3ADE3219CBD5000861698 /* Resources */,
 				D024FBAACBCDF4E712135772 /* [CP] Embed Pods Frameworks */,
+				63CF9587EEF787E10C89B1BD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -288,6 +307,7 @@
 			files = (
 				7CE3ADF3219CBD5200861698 /* LaunchScreen.storyboard in Resources */,
 				7C3E433221B342D600161FEC /* GoogleService-Info.plist in Resources */,
+				7C35D4C721B34CBA000F9EB4 /* CityViewController.xib in Resources */,
 				7CE3ADF0219CBD5200861698 /* Assets.xcassets in Resources */,
 				7CE3ADEE219CBD5000861698 /* Main.storyboard in Resources */,
 			);
@@ -312,6 +332,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		63CF9587EEF787E10C89B1BD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GearShare/Pods-GearShare-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GearShare/Pods-GearShare-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7221B84B11445B89C472FB80 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -387,16 +429,26 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GearShare/Pods-GearShare-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,9 +464,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C0552A721B333DB00BF422B /* PostViewController.swift in Sources */,
+				7C3B783F21B48C9500A15067 /* UserViewController.swift in Sources */,
+				7C5D056B21B350F300DA16C9 /* MapViewController.swift in Sources */,
+				7C90732F21B496AC00923154 /* AppUITool.swift in Sources */,
 				7CE3ADEB219CBD5000861698 /* ViewController.swift in Sources */,
-				7C3D71E121B34A4000D055B0 /* SignUpViewController.swift in Sources */,
+				7C35D4C821B34CBA000F9EB4 /* LoginViewController.swift in Sources */,
 				7CE3ADE9219CBD5000861698 /* AppDelegate.swift in Sources */,
+				7C5D056A21B350F300DA16C9 /* SignUpViewController.swift in Sources */,
+				7C5D056D21B450CE00DA16C9 /* ResetPasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
