@@ -32,10 +32,9 @@ class LoginViewController: UIViewController {
             Auth.auth().signIn(withEmail: self.LoginEmail.text!, password: self.LoginPassword.text!) { (user, error) in
                 if error == nil {
                     // go to the home view controller if the login is sucessful
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-                    self.present(vc!, animated: true, completion: nil)
+                    let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Home")
+                    self.present(vc, animated: true, completion: nil)
                     
-                    // Fix: alert not appearing
                     // alert successful log in
                     print("You have successfully logged in")
                     let alertController = UIAlertController(title: "Success!", message: "You Have Logged In", preferredStyle: .alert)
@@ -43,13 +42,13 @@ class LoginViewController: UIViewController {
                     let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
                     alertController.addAction(defaultAction)
                     
-                    self.present(alertController, animated: true, completion: nil)
+                    vc.present(alertController, animated: true, completion: nil)
                     
                 } else {
                     // alert the user with the firebase error
                     let alertController = UIAlertController(title: "Error!", message: error?.localizedDescription, preferredStyle: .alert)
                     
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
                     alertController.addAction(defaultAction)
                     
                     self.present(alertController, animated: true, completion: nil)

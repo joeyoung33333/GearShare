@@ -13,6 +13,7 @@ import FirebaseAuth
 class UserViewController: UIViewController {
     // outlet
     @IBOutlet weak var UserProfileEmail: UILabel!
+    @IBOutlet weak var UserProfileName: UILabel!
     @IBOutlet weak var UserProfileUID: UILabel!
     
     // action
@@ -26,7 +27,6 @@ class UserViewController: UIViewController {
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login")
                 present(vc, animated: true, completion: nil)
             
-                // Fix: alert not appearing
                 // alert successful log out
                 print("Sign out successful")
                 let alertController = UIAlertController(title: "Success!", message: "You Have Logged Out", preferredStyle: .alert)
@@ -34,13 +34,18 @@ class UserViewController: UIViewController {
                 let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
                 alertController.addAction(defaultAction)
                 
-                self.present(alertController, animated: true, completion: nil)
+                vc.present(alertController, animated: true, completion: nil)
                 
             } catch let error as NSError {
                 // print error to console
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    @IBAction func EditUserButton(_ sender: Any) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EditUser")
+        present(vc, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -50,6 +55,7 @@ class UserViewController: UIViewController {
         if let user = user {
             self.UserProfileEmail.text = user.email
             self.UserProfileUID.text = user.uid
+            self.UserProfileName.text = user.displayName
         } else{
             print("Not Logged In")
         }
