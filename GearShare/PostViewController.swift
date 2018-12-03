@@ -51,11 +51,23 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         print("USER SLUG: "+userSlug);
         docRef = Firestore.firestore().document("items/\(userSlug)")
         docRef.setData(itemEntry){ (error) in
-            if let error = error {
-                print("Item entry SAVE ERROR \(error.localizedDescription)")
+            if error == nil {
+                // alert user of successful post
+                let alertController = UIAlertController(title: "Success!", message: "Your Post was Published", preferredStyle: .alert)
+                
+                let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                alertController.addAction(defaultAction)
+                
+                self.present(alertController, animated: true, completion: nil)
+                
             } else {
-                print("Item saved");
-                self.saveSuccess.text = "Item is saved"
+                // account creation failed, so alert user of errors from firebase
+                let alertController = UIAlertController(title: "Error!", message: error?.localizedDescription, preferredStyle: .alert)
+                
+                let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                alertController.addAction(defaultAction)
+                
+                self.present(alertController, animated: true, completion: nil)
             }
         }
     }
