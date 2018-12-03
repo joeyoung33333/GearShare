@@ -33,7 +33,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         
         imagePickerController.dismiss(animated: true, completion: nil)
         imageView.image = info[.originalImage] as? UIImage
-        imageView.contentMode = UIView.ContentMode.scaleAspectFill
+        imageView.contentMode = UIView.ContentMode.scaleAspectFit
         //imageView.image = info[,]
     }
 
