@@ -16,6 +16,9 @@
 		7C5D056B21B350F300DA16C9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5D056921B350F300DA16C9 /* MapViewController.swift */; };
 		7C5D056D21B450CE00DA16C9 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5D056C21B450CE00DA16C9 /* ResetPasswordViewController.swift */; };
 		7C90732F21B496AC00923154 /* AppUITool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C90732E21B496AC00923154 /* AppUITool.swift */; };
+		7CA4778421B4E83E00627BB9 /* face_ID@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA4778221B4E7D100627BB9 /* face_ID@2x.png */; };
+		7CA4778521B4E88600627BB9 /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA4777E21B4E7D100627BB9 /* camera@2x.png */; };
+		7CA4778621B4E89400627BB9 /* map_marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA4777C21B4E7D100627BB9 /* map_marker@2x.png */; };
 		7CE3ADE9219CBD5000861698 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3ADE8219CBD5000861698 /* AppDelegate.swift */; };
 		7CE3ADEB219CBD5000861698 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3ADEA219CBD5000861698 /* ViewController.swift */; };
 		7CE3ADEE219CBD5000861698 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CE3ADEC219CBD5000861698 /* Main.storyboard */; };
@@ -23,7 +26,6 @@
 		7CE3ADF3219CBD5200861698 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CE3ADF1219CBD5200861698 /* LaunchScreen.storyboard */; };
 		7CE3ADFE219CBD5200861698 /* GearShareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3ADFD219CBD5200861698 /* GearShareTests.swift */; };
 		7CE3AE09219CBD5200861698 /* GearShareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3AE08219CBD5200861698 /* GearShareUITests.swift */; };
-		7CF252D421A35B5200942399 /* Icons in Resources */ = {isa = PBXBuildFile; fileRef = 7CF252D321A35B5200942399 /* Icons */; };
 		8C0552A721B333DB00BF422B /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0552A621B333DB00BF422B /* PostViewController.swift */; };
 		8C843B4D21B4A73600CDCE6C /* ItemPhotoUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C843B4C21B4A73600CDCE6C /* ItemPhotoUploadViewController.swift */; };
 		8C843B4F21B4B86A00CDCE6C /* gearShare_iOS_icons in Resources */ = {isa = PBXBuildFile; fileRef = 8C843B4E21B4B86A00CDCE6C /* gearShare_iOS_icons */; };
@@ -61,6 +63,15 @@
 		7C5D056921B350F300DA16C9 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7C5D056C21B450CE00DA16C9 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		7C90732E21B496AC00923154 /* AppUITool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUITool.swift; sourceTree = "<group>"; };
+		7CA4777B21B4E7D100627BB9 /* camera@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@3x.png"; sourceTree = "<group>"; };
+		7CA4777C21B4E7D100627BB9 /* map_marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_marker@2x.png"; sourceTree = "<group>"; };
+		7CA4777D21B4E7D100627BB9 /* map_marker@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_marker@3x.png"; sourceTree = "<group>"; };
+		7CA4777E21B4E7D100627BB9 /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@2x.png"; sourceTree = "<group>"; };
+		7CA4777F21B4E7D100627BB9 /* map_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_marker.png; sourceTree = "<group>"; };
+		7CA4778021B4E7D100627BB9 /* face_ID@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "face_ID@3x.png"; sourceTree = "<group>"; };
+		7CA4778121B4E7D100627BB9 /* face_ID.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = face_ID.png; sourceTree = "<group>"; };
+		7CA4778221B4E7D100627BB9 /* face_ID@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "face_ID@2x.png"; sourceTree = "<group>"; };
+		7CA4778321B4E7D100627BB9 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
 		7CE3ADE5219CBD5000861698 /* GearShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GearShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CE3ADE8219CBD5000861698 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CE3ADEA219CBD5000861698 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,7 +85,6 @@
 		7CE3AE04219CBD5200861698 /* GearShareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GearShareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CE3AE08219CBD5200861698 /* GearShareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearShareUITests.swift; sourceTree = "<group>"; };
 		7CE3AE0A219CBD5200861698 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7CF252D321A35B5200942399 /* Icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Icons; sourceTree = SOURCE_ROOT; };
 		8C0552A621B333DB00BF422B /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		8C843B4C21B4A73600CDCE6C /* ItemPhotoUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemPhotoUploadViewController.swift; sourceTree = "<group>"; };
 		8C843B4E21B4B86A00CDCE6C /* gearShare_iOS_icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = gearShare_iOS_icons; sourceTree = SOURCE_ROOT; };
@@ -124,13 +134,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7CA4777A21B4E7D100627BB9 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				7CA4777B21B4E7D100627BB9 /* camera@3x.png */,
+				7CA4777C21B4E7D100627BB9 /* map_marker@2x.png */,
+				7CA4777D21B4E7D100627BB9 /* map_marker@3x.png */,
+				7CA4777E21B4E7D100627BB9 /* camera@2x.png */,
+				7CA4777F21B4E7D100627BB9 /* map_marker.png */,
+				7CA4778021B4E7D100627BB9 /* face_ID@3x.png */,
+				7CA4778121B4E7D100627BB9 /* face_ID.png */,
+				7CA4778221B4E7D100627BB9 /* face_ID@2x.png */,
+				7CA4778321B4E7D100627BB9 /* camera.png */,
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
 		7CE3ADDC219CBD5000861698 = {
 			isa = PBXGroup;
 			children = (
 				7CE3ADE7219CBD5000861698 /* GearShare */,
 				7CE3ADFC219CBD5200861698 /* GearShareTests */,
 				7CE3AE07219CBD5200861698 /* GearShareUITests */,
-				7CF252D321A35B5200942399 /* Icons */,
 				7CE3ADE6219CBD5000861698 /* Products */,
 				82F21454FCD7D1BE606FE117 /* Pods */,
 				037F1F1B8AB919467FA24513 /* Frameworks */,
@@ -153,6 +178,7 @@
 				7C90732E21B496AC00923154 /* AppUITool.swift */,
 				7CE3ADE8219CBD5000861698 /* AppDelegate.swift */,
 				7CE3ADEA219CBD5000861698 /* ViewController.swift */,
+				8C843B4C21B4A73600CDCE6C /* ItemPhotoUploadViewController.swift */,
 				8C0552A621B333DB00BF422B /* PostViewController.swift */,
 				7C5D056921B350F300DA16C9 /* MapViewController.swift */,
 				7C3B783E21B48C9500A15067 /* UserViewController.swift */,
@@ -160,11 +186,11 @@
 				7C5D056821B350F300DA16C9 /* SignUpViewController.swift */,
 				7C5D056C21B450CE00DA16C9 /* ResetPasswordViewController.swift */,
 				7CE3ADEC219CBD5000861698 /* Main.storyboard */,
-				8C843B4C21B4A73600CDCE6C /* ItemPhotoUploadViewController.swift */,
 				7CE3ADF1219CBD5200861698 /* LaunchScreen.storyboard */,
 				7C35D4C521B34CBA000F9EB4 /* CityViewController.xib */,
 				7CE3ADEF219CBD5200861698 /* Assets.xcassets */,
 				8C843B4E21B4B86A00CDCE6C /* gearShare_iOS_icons */,
+				7CA4777A21B4E7D100627BB9 /* Icons */,
 				7C3E433121B342D500161FEC /* GoogleService-Info.plist */,
 				7CE3ADF4219CBD5200861698 /* Info.plist */,
 			);
@@ -314,6 +340,9 @@
 				7CE3ADF3219CBD5200861698 /* LaunchScreen.storyboard in Resources */,
 				7C3E433221B342D600161FEC /* GoogleService-Info.plist in Resources */,
 				7C35D4C721B34CBA000F9EB4 /* CityViewController.xib in Resources */,
+				7CA4778521B4E88600627BB9 /* camera@2x.png in Resources */,
+				7CA4778621B4E89400627BB9 /* map_marker@2x.png in Resources */,
+				7CA4778421B4E83E00627BB9 /* face_ID@2x.png in Resources */,
 				7CE3ADF0219CBD5200861698 /* Assets.xcassets in Resources */,
 				8C843B4F21B4B86A00CDCE6C /* gearShare_iOS_icons in Resources */,
 				7CE3ADEE219CBD5000861698 /* Main.storyboard in Resources */,
@@ -332,7 +361,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CF252D421A35B5200942399 /* Icons in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
