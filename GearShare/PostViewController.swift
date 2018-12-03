@@ -56,7 +56,11 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
                 self.itemName.text = ""
                 self.priceDay.text = ""
                 self.itemAddress.text = ""
+                self.imageView.image = UIImage(named: "blank_camera")
                 
+                self.imageView.layer.borderColor = UIColor.blue.cgColor
+                self.imageView.layer.borderWidth = 1.5
+
                 let alertController = UIAlertController(title: "Success!", message: "Your Post was Published", preferredStyle: .alert)
                 
                 let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
@@ -72,18 +76,16 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
                 alertController.addAction(defaultAction)
                 
                 self.present(alertController, animated: true, completion: nil)
-                
-                self.imageView.image = nil
-                let borderColor = UIColor.blue
-                self.imageView.layer.borderColor = borderColor.cgColor
-                self.imageView.layer.borderWidth = 2.0
             }
         }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
+        // Do any additional setup after loading the view, typically from a nib.
+        self.imageView.image = UIImage(named: "blank_camera")
+        self.imageView.layer.borderColor = UIColor.gray.cgColor
+        self.imageView.layer.borderWidth = 1.5
         //docRef = Firestore.firestore().document("items/itemEntry");
         imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
