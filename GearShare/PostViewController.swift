@@ -58,15 +58,16 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
                 self.itemAddress.text = ""
                 self.imageView.image = UIImage(named: "blank_camera")
                 
-                self.imageView.layer.borderColor = UIColor.blue.cgColor
-                self.imageView.layer.borderWidth = 1.5
+                // go to the home view controller if the login is sucessful
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Home")
+                self.present(vc, animated: true, completion: nil)
 
                 let alertController = UIAlertController(title: "Success!", message: "Your Post was Published", preferredStyle: .alert)
                 
                 let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
                 alertController.addAction(defaultAction)
                 
-                self.present(alertController, animated: true, completion: nil)
+                vc.present(alertController, animated: true, completion: nil)
                 
             } else {
                 // account creation failed, so alert user of errors from firebase
@@ -87,10 +88,13 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         self.imageView.layer.borderColor = UIColor.gray.cgColor
         self.imageView.layer.borderWidth = 1.5
         //docRef = Firestore.firestore().document("items/itemEntry");
+       
+        /*
         imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.sourceType = .camera
         present(imagePickerController, animated: true, completion: nil)
+        */
     }
     
     

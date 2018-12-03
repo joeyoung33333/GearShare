@@ -29,7 +29,6 @@
 		7CE3AE09219CBD5200861698 /* GearShareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3AE08219CBD5200861698 /* GearShareUITests.swift */; };
 		8C0552A721B333DB00BF422B /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0552A621B333DB00BF422B /* PostViewController.swift */; };
 		8C1E1B6D21B4EF54003C67D9 /* ItemQueryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1E1B6C21B4EF54003C67D9 /* ItemQueryTableViewController.swift */; };
-		8C1E517D21B5CFF00038E505 /* blank_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1E517C21B5CFEF0038E505 /* blank_camera.png */; };
 		8C843B4F21B4B86A00CDCE6C /* gearShare_iOS_icons in Resources */ = {isa = PBXBuildFile; fileRef = 8C843B4E21B4B86A00CDCE6C /* gearShare_iOS_icons */; };
 		8CF878F821A3D2E700B1E61A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CE3ADEC219CBD5000861698 /* Main.storyboard */; };
 		962288CD6963D30B7899B79D /* Pods_GearShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D68ABE91B04B23A4DD27850F /* Pods_GearShare.framework */; };
@@ -90,7 +89,6 @@
 		7CE3AE0A219CBD5200861698 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C0552A621B333DB00BF422B /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		8C1E1B6C21B4EF54003C67D9 /* ItemQueryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemQueryTableViewController.swift; sourceTree = "<group>"; };
-		8C1E517C21B5CFEF0038E505 /* blank_camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_camera.png; sourceTree = "<group>"; };
 		8C843B4E21B4B86A00CDCE6C /* gearShare_iOS_icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = gearShare_iOS_icons; sourceTree = SOURCE_ROOT; };
 		9FA8BFAB8984904199839182 /* Pods-GearShareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GearShareTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GearShareTests/Pods-GearShareTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A09828226E0F863F64A8F1EA /* Pods-GearShareUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GearShareUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GearShareUITests/Pods-GearShareUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,7 +139,6 @@
 		7CA4777A21B4E7D100627BB9 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				8C1E517C21B5CFEF0038E505 /* blank_camera.png */,
 				7CA4777B21B4E7D100627BB9 /* camera@3x.png */,
 				7CA4777C21B4E7D100627BB9 /* map_marker@2x.png */,
 				7CA4777D21B4E7D100627BB9 /* map_marker@3x.png */,
@@ -344,7 +341,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CE3ADF3219CBD5200861698 /* LaunchScreen.storyboard in Resources */,
-				8C1E517D21B5CFF00038E505 /* blank_camera.png in Resources */,
 				7C3E433221B342D600161FEC /* GoogleService-Info.plist in Resources */,
 				7C35D4C721B34CBA000F9EB4 /* CityViewController.xib in Resources */,
 				7CA4778521B4E88600627BB9 /* camera@2x.png in Resources */,
