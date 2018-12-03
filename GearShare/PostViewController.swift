@@ -15,7 +15,6 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
     //@IBOutlet weak var userName: UITextField!
     @IBOutlet weak var itemName: UITextField!
     @IBOutlet weak var priceDay: UITextField!
-    @IBOutlet weak var saveSuccess: UILabel!
     @IBOutlet weak var itemAddress: UITextField!
     
     @IBOutlet weak var imageView: UIImageView!
@@ -53,6 +52,11 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         docRef.setData(itemEntry){ (error) in
             if error == nil {
                 // alert user of successful post
+                
+                self.itemName.text = ""
+                self.priceDay.text = ""
+                self.itemAddress.text = ""
+                
                 let alertController = UIAlertController(title: "Success!", message: "Your Post was Published", preferredStyle: .alert)
                 
                 let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
