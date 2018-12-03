@@ -26,6 +26,7 @@
 		7CF252D421A35B5200942399 /* Icons in Resources */ = {isa = PBXBuildFile; fileRef = 7CF252D321A35B5200942399 /* Icons */; };
 		8C0552A721B333DB00BF422B /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0552A621B333DB00BF422B /* PostViewController.swift */; };
 		8C843B4D21B4A73600CDCE6C /* ItemPhotoUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C843B4C21B4A73600CDCE6C /* ItemPhotoUploadViewController.swift */; };
+		8C843B4F21B4B86A00CDCE6C /* gearShare_iOS_icons in Resources */ = {isa = PBXBuildFile; fileRef = 8C843B4E21B4B86A00CDCE6C /* gearShare_iOS_icons */; };
 		8CF878F821A3D2E700B1E61A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CE3ADEC219CBD5000861698 /* Main.storyboard */; };
 		962288CD6963D30B7899B79D /* Pods_GearShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D68ABE91B04B23A4DD27850F /* Pods_GearShare.framework */; };
 		A05CB7C63BB6F60539AA0113 /* Pods_GearShareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E8FB50A29738F7F63F5108 /* Pods_GearShareTests.framework */; };
@@ -76,6 +77,7 @@
 		7CF252D321A35B5200942399 /* Icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Icons; sourceTree = SOURCE_ROOT; };
 		8C0552A621B333DB00BF422B /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		8C843B4C21B4A73600CDCE6C /* ItemPhotoUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemPhotoUploadViewController.swift; sourceTree = "<group>"; };
+		8C843B4E21B4B86A00CDCE6C /* gearShare_iOS_icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = gearShare_iOS_icons; sourceTree = SOURCE_ROOT; };
 		9FA8BFAB8984904199839182 /* Pods-GearShareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GearShareTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GearShareTests/Pods-GearShareTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A09828226E0F863F64A8F1EA /* Pods-GearShareUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GearShareUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GearShareUITests/Pods-GearShareUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A2FCF12C1879601D5C9C263D /* Pods-GearShareUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GearShareUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GearShareUITests/Pods-GearShareUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				7CE3ADF1219CBD5200861698 /* LaunchScreen.storyboard */,
 				7C35D4C521B34CBA000F9EB4 /* CityViewController.xib */,
 				7CE3ADEF219CBD5200861698 /* Assets.xcassets */,
+				8C843B4E21B4B86A00CDCE6C /* gearShare_iOS_icons */,
 				7C3E433121B342D500161FEC /* GoogleService-Info.plist */,
 				7CE3ADF4219CBD5200861698 /* Info.plist */,
 			);
@@ -312,6 +315,7 @@
 				7C3E433221B342D600161FEC /* GoogleService-Info.plist in Resources */,
 				7C35D4C721B34CBA000F9EB4 /* CityViewController.xib in Resources */,
 				7CE3ADF0219CBD5200861698 /* Assets.xcassets in Resources */,
+				8C843B4F21B4B86A00CDCE6C /* gearShare_iOS_icons in Resources */,
 				7CE3ADEE219CBD5000861698 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
