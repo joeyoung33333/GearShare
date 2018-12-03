@@ -19,7 +19,6 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
     @IBOutlet weak var itemAddress: UITextField!
     
     @IBOutlet weak var imageView: UIImageView!
-    
     let demoUserId = "TestUser01"
     var docRef: DocumentReference!
     
@@ -35,6 +34,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         
         imagePickerController.dismiss(animated: true, completion: nil)
         imageView.image = info[.originalImage] as? UIImage
+        imageView.contentMode = UIView.ContentMode.scaleAspectFill
         //imageView.image = info[,]
     }
 
@@ -64,6 +64,10 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         // Do any additional setup after loading the view, typically from a nib.
         
         //docRef = Firestore.firestore().document("items/itemEntry");
+        imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .camera
+        present(imagePickerController, animated: true, completion: nil)
     }
     
     
