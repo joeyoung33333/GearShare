@@ -11,6 +11,10 @@ import Firebase
 import FirebaseAuth
 
 class UserViewController: UIViewController {
+    // outlet
+    @IBOutlet weak var UserProfileEmail: UILabel!
+    @IBOutlet weak var UserProfileUID: UILabel!
+    
     // action
     // Log Out: method allows user to log out
     @IBAction func LogOutButton(_ sender: Any) {
@@ -42,6 +46,13 @@ class UserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let user = Auth.auth().currentUser
+        if let user = user {
+            self.UserProfileEmail.text = user.email
+            self.UserProfileUID.text = user.uid
+        } else{
+            print("Not Logged In")
+        }
     }
     
     
