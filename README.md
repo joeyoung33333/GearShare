@@ -33,11 +33,11 @@ On the bottom of the app, there are three tabs that take the user to three diffe
 ## Responsibility and Roles
 ### Joseph Young
 Front and Backend Integration
-Connecting the database (Larry Liu) to the front end (Lap Yan Cheung) and implementation of user interactions. My role will be responsible for collecting and sending relevant data to the database setup by Larry. Data to be sent and receive will include passwords and user data (photos, items for rent, etc…). I will also be working with Lap Yan Cheung to implement the user design with the user interaction within the application like moving between views and working with posts to store the data. Ultimately, my job will focus on tying the back and front end together.
+Connecting the database (Larry Liu) to the front end (Lap Yan Cheung) and implementation of user interactions. My role will be responsible for collecting and sending relevant data to the database setup by Larry. Data to be sent and receive will include passwords and user data (photos, items for rent, etc…). This also includes handling User auhentication, sessions, and account creation through firebase. I will also be working with Lap Yan Cheung to implement the user design with the user interaction within the application like moving between views and working with posts to store the data.
 
 ### Larry Liu
 Backend
-Implementation of the backend focusing on the database to store data for passwords and other user data. 
+Implementation of Map API.
 
 ### Lap Yan Cheung
 Product Design
