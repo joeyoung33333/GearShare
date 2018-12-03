@@ -96,6 +96,18 @@
                                 <color key="textColor" red="0.25945881009999999" green="0.68127137419999995" blue="0.7946298718" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6e-WZ-JDp">
+                                <rect key="frame" x="78" y="72" width="258" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.24332304160000001" blue="0.27881965019999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                <state key="normal" title="UPLOAD IMAGE">
+                                    <color key="titleColor" red="0.93778718999999999" green="0.97964824770000003" blue="0.98952058139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="takePhoto:" destination="cfY-bc-hQS" eventType="touchUpInside" id="v7Q-Hb-spa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -108,6 +120,7 @@
                         <color key="badgeColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="imageView" destination="8xe-6E-3bg" id="j9g-Sm-5ra"/>
                         <outlet property="itemAddress" destination="EUh-Fb-iQF" id="g9a-Ee-9x5"/>
                         <outlet property="itemName" destination="tZZ-JT-y9O" id="MKg-Od-O4N"/>
                         <outlet property="priceDay" destination="dqO-JN-te2" id="muN-4h-wHX"/>

@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 
-class PostViewController: UIViewController {
+class PostViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     // User item information inputs
     //@IBOutlet weak var userName: UITextField!
     @IBOutlet weak var itemName: UITextField!
@@ -18,8 +18,26 @@ class PostViewController: UIViewController {
     @IBOutlet weak var saveSuccess: UILabel!
     @IBOutlet weak var itemAddress: UITextField!
     
+    @IBOutlet weak var imageView: UIImageView!
+    
     let demoUserId = "TestUser01"
     var docRef: DocumentReference!
+    
+    var imagePickerController: UIImagePickerController!
+    
+    @IBAction func takePhoto(_ sender: Any) {
+        imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .camera
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        imagePickerController.dismiss(animated: true, completion: nil)
+        imageView.image = info[.originalImage] as? UIImage
+        //imageView.image = info[,]
+    }
+
     
     // On-click save entry
     @IBAction func postItem(_ sender: UIButton) {
