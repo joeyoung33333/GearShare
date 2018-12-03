@@ -37,17 +37,16 @@ class SignUpViewController: UIViewController {
                     self.SignUpPassword.text = ""
                     
                     // return to login view controller
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Login")
-                    self.present(vc!, animated: true, completion: nil)
+                    let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login")
+                    self.present(vc, animated: true, completion: nil)
                     
-                    // Fix: alert not appearing
                     // alerts successful account creation
                     let alertController = UIAlertController(title: "Success!", message: "Your Account Has Been Created", preferredStyle: .alert)
                     
                     let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
                     alertController.addAction(defaultAction)
                     
-                    self.present(alertController, animated: true, completion: nil)
+                    vc.present(alertController, animated: true, completion: nil)
                 } else {
                     // account creation failed, so alert user of errors from firebase
                     let alertController = UIAlertController(title: "Error!", message: error?.localizedDescription, preferredStyle: .alert)
