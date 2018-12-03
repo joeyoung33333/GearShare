@@ -72,6 +72,11 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
                 alertController.addAction(defaultAction)
                 
                 self.present(alertController, animated: true, completion: nil)
+                
+                self.imageView.image = nil
+                let borderColor = UIColor.blue
+                self.imageView.layer.borderColor = borderColor.cgColor
+                self.imageView.layer.borderWidth = 2.0
             }
         }
     }
