@@ -25,7 +25,7 @@
 		7CE3AE09219CBD5200861698 /* GearShareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3AE08219CBD5200861698 /* GearShareUITests.swift */; };
 		7CF252D421A35B5200942399 /* Icons in Resources */ = {isa = PBXBuildFile; fileRef = 7CF252D321A35B5200942399 /* Icons */; };
 		8C0552A721B333DB00BF422B /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0552A621B333DB00BF422B /* PostViewController.swift */; };
-		8C843B4D21B4A73600CDCE6C /* ItemPhotoUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C843B4C21B4A73600CDCE6C /* ItemPhotoUploadViewController.swift */; };
+		8C1E1B6D21B4EF54003C67D9 /* ItemQueryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1E1B6C21B4EF54003C67D9 /* ItemQueryTableViewController.swift */; };
 		8C843B4F21B4B86A00CDCE6C /* gearShare_iOS_icons in Resources */ = {isa = PBXBuildFile; fileRef = 8C843B4E21B4B86A00CDCE6C /* gearShare_iOS_icons */; };
 		8CF878F821A3D2E700B1E61A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CE3ADEC219CBD5000861698 /* Main.storyboard */; };
 		962288CD6963D30B7899B79D /* Pods_GearShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D68ABE91B04B23A4DD27850F /* Pods_GearShare.framework */; };
@@ -76,7 +76,7 @@
 		7CE3AE0A219CBD5200861698 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CF252D321A35B5200942399 /* Icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Icons; sourceTree = SOURCE_ROOT; };
 		8C0552A621B333DB00BF422B /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
-		8C843B4C21B4A73600CDCE6C /* ItemPhotoUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemPhotoUploadViewController.swift; sourceTree = "<group>"; };
+		8C1E1B6C21B4EF54003C67D9 /* ItemQueryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemQueryTableViewController.swift; sourceTree = "<group>"; };
 		8C843B4E21B4B86A00CDCE6C /* gearShare_iOS_icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = gearShare_iOS_icons; sourceTree = SOURCE_ROOT; };
 		9FA8BFAB8984904199839182 /* Pods-GearShareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GearShareTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GearShareTests/Pods-GearShareTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A09828226E0F863F64A8F1EA /* Pods-GearShareUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GearShareUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GearShareUITests/Pods-GearShareUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -155,12 +155,12 @@
 				7CE3ADEA219CBD5000861698 /* ViewController.swift */,
 				8C0552A621B333DB00BF422B /* PostViewController.swift */,
 				7C5D056921B350F300DA16C9 /* MapViewController.swift */,
+				8C1E1B6C21B4EF54003C67D9 /* ItemQueryTableViewController.swift */,
 				7C3B783E21B48C9500A15067 /* UserViewController.swift */,
 				7C35D4C621B34CBA000F9EB4 /* LoginViewController.swift */,
 				7C5D056821B350F300DA16C9 /* SignUpViewController.swift */,
 				7C5D056C21B450CE00DA16C9 /* ResetPasswordViewController.swift */,
 				7CE3ADEC219CBD5000861698 /* Main.storyboard */,
-				8C843B4C21B4A73600CDCE6C /* ItemPhotoUploadViewController.swift */,
 				7CE3ADF1219CBD5200861698 /* LaunchScreen.storyboard */,
 				7C35D4C521B34CBA000F9EB4 /* CityViewController.xib */,
 				7CE3ADEF219CBD5200861698 /* Assets.xcassets */,
@@ -475,9 +475,9 @@
 				7C5D056B21B350F300DA16C9 /* MapViewController.swift in Sources */,
 				7C90732F21B496AC00923154 /* AppUITool.swift in Sources */,
 				7CE3ADEB219CBD5000861698 /* ViewController.swift in Sources */,
+				8C1E1B6D21B4EF54003C67D9 /* ItemQueryTableViewController.swift in Sources */,
 				7C35D4C821B34CBA000F9EB4 /* LoginViewController.swift in Sources */,
 				7CE3ADE9219CBD5000861698 /* AppDelegate.swift in Sources */,
-				8C843B4D21B4A73600CDCE6C /* ItemPhotoUploadViewController.swift in Sources */,
 				7C5D056A21B350F300DA16C9 /* SignUpViewController.swift in Sources */,
 				7C5D056D21B450CE00DA16C9 /* ResetPasswordViewController.swift in Sources */,
 			);

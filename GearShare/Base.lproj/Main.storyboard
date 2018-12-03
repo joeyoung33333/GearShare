@@ -158,6 +158,47 @@
             </objects>
             <point key="canvasLocation" x="634.78260869565224" y="109.82142857142857"/>
         </scene>
+        <!--Item Query Table View Controller-->
+        <scene sceneID="zKy-Pv-VYb">
+            <objects>
+                <viewController id="AGU-km-bXt" customClass="ItemQueryTableViewController" customModule="GearShare" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yLl-11-pSg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hPG-sW-xag">
+                                <rect key="frame" x="0.0" y="28" width="414" height="868"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlainCell" id="eYG-Xm-rJr">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eYG-Xm-rJr" id="9Cq-dl-W0H">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="AGU-km-bXt" id="ara-2z-IU4"/>
+                                    <outlet property="delegate" destination="AGU-km-bXt" id="p91-eL-KGZ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hPG-sW-xag" firstAttribute="top" secondItem="aGR-kR-VoB" secondAttribute="top" id="QzS-RO-ggC"/>
+                            <constraint firstAttribute="bottom" secondItem="hPG-sW-xag" secondAttribute="bottom" id="ftL-2V-gcJ"/>
+                            <constraint firstItem="hPG-sW-xag" firstAttribute="trailing" secondItem="aGR-kR-VoB" secondAttribute="trailing" id="ia5-7P-3LH"/>
+                            <constraint firstItem="hPG-sW-xag" firstAttribute="leading" secondItem="aGR-kR-VoB" secondAttribute="leading" id="y2F-bP-o9X"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aGR-kR-VoB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M3x-1i-xqr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1505.7971014492755" y="-216.29464285714286"/>
+        </scene>
         <!--Reset Password View Controller-->
         <scene sceneID="nCP-4u-tTQ">
             <objects>
