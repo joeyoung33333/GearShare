@@ -154,6 +154,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mhx-Pv-v65" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1042" y="556"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="dKa-Xm-naZ">
+            <objects>
+                <viewController id="SOj-wU-iBj" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TG7-kY-VI1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zB8-RY-b4v">
+                                <rect key="frame" x="42" y="58" width="330" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="My Gear"/>
+                                    <segment title="My Rentals"/>
+                                    <segment title="Pending Rentals"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37v-lh-Ocx" customClass="RoundedButton" customModule="GearShare" customModuleProvider="target">
+                                <rect key="frame" x="192" y="94" width="30" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="+"/>
+                                <connections>
+                                    <segue destination="cfY-bc-hQS" kind="show" id="nnl-MZ-CKV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="la8-b6-C2R"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="history" id="JY5-Oc-3mR"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z7N-Rx-oWh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="192.75362318840581" y="555.80357142857144"/>
         </scene>
         <!--Map-->
@@ -502,8 +539,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="cqc-ut-zeD" kind="relationship" relationship="viewControllers" id="c0O-fq-Wk0"/>
-                        <segue destination="cfY-bc-hQS" kind="relationship" relationship="viewControllers" id="BbC-ia-n3Y"/>
                         <segue destination="2g4-oD-crm" kind="relationship" relationship="viewControllers" id="3no-sO-B48"/>
+                        <segue destination="SOj-wU-iBj" kind="relationship" relationship="viewControllers" id="E5i-na-i9N"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jnj-1k-1dZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
