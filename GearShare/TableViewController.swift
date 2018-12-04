@@ -40,7 +40,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         self.myTable.rowHeight = 200
         super.viewDidLoad()
-        
+        self.hideKeyboardWhenTappedAround()
     }
     
     @IBAction func buttonPress(_ sender: Any) {
