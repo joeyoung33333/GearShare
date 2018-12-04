@@ -1304,6 +1304,7 @@
                     <connections>
                         <outlet property="myButton" destination="CP5-lN-NHm" id="Hgu-EF-wpa"/>
                         <outlet property="myDuration" destination="E40-UU-SM3" id="jtL-MQ-dfo"/>
+                        <outlet property="myHeadLabel" destination="UmC-fw-MTO" id="8Ja-tW-IS7"/>
                         <outlet property="myTable" destination="nxJ-ew-6yy" id="xW3-7D-pgU"/>
                     </connections>
                 </viewController>
@@ -1318,10 +1319,9 @@
         <image name="map_marker.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nnl-MZ-CKV"/>
-        <segue reference="4pw-1e-uId"/>
+        <segue reference="J3j-VI-SmG"/>
         <segue reference="U8q-3J-QGY"/>
         <segue reference="kIZ-sK-st0"/>
-        <segue reference="KnU-di-N2f"/>
+        <segue reference="vV2-fT-4vk"/>
     </inferredMetricsTieBreakers>
 </document>

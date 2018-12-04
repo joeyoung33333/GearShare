@@ -12,14 +12,15 @@ import FirebaseFirestore
 
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    var db = Firestore.firestore()
     @IBOutlet weak var myHeadLabel: UILabel!
     @IBOutlet weak var myTable: UITableView!
     @IBOutlet weak var myButton: UIButton!
     @IBOutlet weak var myDuration: UITextField!
     
     // test cases
-    let products = ["Camera1", "Camera2", "Camera3"]
-    let prices = ["$40", "$25", "100"]
+    var products = [String]()
+    var prices = [String]()
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -38,8 +39,25 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     override func viewDidLoad() {
-        self.myTable.rowHeight = 200
         super.viewDidLoad()
+        db.collection("items").getDocuments() { (querySnapshot, err) in
+            print("All Documents")
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    let docData = document.data()
+                    self.products.append(docData["item_name"] as! String)
+                    let priceStr = docData["pricePerDay"] as! String
+                    self.prices.append("$" + priceStr)
+                    print("\(document.documentID) => \(document.data())")
+                }
+                print(self.products)
+                print(self.prices)
+                self.myTable.reloadData()
+            }
+        }
+        self.myTable.rowHeight = 200
         self.hideKeyboardWhenTappedAround()
     }
     
