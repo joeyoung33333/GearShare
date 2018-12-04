@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		211A196D21B6C2B900116459 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211A196B21B6C2B800116459 /* TableViewController.swift */; };
-		211A196E21B6C2B900116459 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211A196C21B6C2B900116459 /* TableViewCell.swift */; };
+		211A197021B6CE0A00116459 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211A196F21B6CE0A00116459 /* TableViewCell.swift */; };
+		211A197221B6CE2D00116459 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211A197121B6CE2D00116459 /* TableViewController.swift */; };
 		5D33CEFDB671B2859146EE16 /* Pods_GearShareUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3F21F5381C85FFA163C8980 /* Pods_GearShareUITests.framework */; };
 		7C0740FE21B60CA400BABD86 /* GearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0740FD21B60CA400BABD86 /* GearViewController.swift */; };
 		7C07410221B612D100BABD86 /* GearCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C07410121B612D100BABD86 /* GearCell.swift */; };
@@ -58,8 +58,8 @@
 /* Begin PBXFileReference section */
 		1027D504539C962DA3A2B59B /* Pods-GearShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GearShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-GearShare/Pods-GearShare.release.xcconfig"; sourceTree = "<group>"; };
 		13B15D6B89008DA37057B401 /* Pods-GearShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GearShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GearShare/Pods-GearShare.debug.xcconfig"; sourceTree = "<group>"; };
-		211A196B21B6C2B800116459 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = "../../GearShare copy/GearShare/TableViewController.swift"; sourceTree = "<group>"; };
-		211A196C21B6C2B900116459 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = "../../GearShare copy/GearShare/TableViewCell.swift"; sourceTree = "<group>"; };
+		211A196F21B6CE0A00116459 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		211A197121B6CE2D00116459 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		62E8FB50A29738F7F63F5108 /* Pods_GearShareTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GearShareTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C0740FD21B60CA400BABD86 /* GearViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GearViewController.swift; sourceTree = "<group>"; };
 		7C07410121B612D100BABD86 /* GearCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GearCell.swift; sourceTree = "<group>"; };
@@ -190,8 +190,6 @@
 				8C0552A621B333DB00BF422B /* PostViewController.swift */,
 				7C5D056921B350F300DA16C9 /* MapViewController.swift */,
 				8C1E1B6C21B4EF54003C67D9 /* ItemQueryTableViewController.swift */,
-				211A196C21B6C2B900116459 /* TableViewCell.swift */,
-				211A196B21B6C2B800116459 /* TableViewController.swift */,
 				7C12645621B58E7A00ECBDD8 /* EditUserViewController.swift */,
 				7C3B783E21B48C9500A15067 /* UserViewController.swift */,
 				7C35D4C621B34CBA000F9EB4 /* LoginViewController.swift */,
@@ -207,6 +205,8 @@
 				7CA4777A21B4E7D100627BB9 /* Icons */,
 				7C3E433121B342D500161FEC /* GoogleService-Info.plist */,
 				7CE3ADF4219CBD5200861698 /* Info.plist */,
+				211A196F21B6CE0A00116459 /* TableViewCell.swift */,
+				211A197121B6CE2D00116459 /* TableViewController.swift */,
 			);
 			path = GearShare;
 			sourceTree = "<group>";
@@ -511,9 +511,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				211A196E21B6C2B900116459 /* TableViewCell.swift in Sources */,
+				211A197021B6CE0A00116459 /* TableViewCell.swift in Sources */,
 				8C0552A721B333DB00BF422B /* PostViewController.swift in Sources */,
-				211A196D21B6C2B900116459 /* TableViewController.swift in Sources */,
 				7C07410221B612D100BABD86 /* GearCell.swift in Sources */,
 				7C0740FE21B60CA400BABD86 /* GearViewController.swift in Sources */,
 				7C3B783F21B48C9500A15067 /* UserViewController.swift in Sources */,
@@ -525,6 +524,7 @@
 				7C35D4C821B34CBA000F9EB4 /* LoginViewController.swift in Sources */,
 				7CE3ADE9219CBD5000861698 /* AppDelegate.swift in Sources */,
 				7C5D056A21B350F300DA16C9 /* SignUpViewController.swift in Sources */,
+				211A197221B6CE2D00116459 /* TableViewController.swift in Sources */,
 				7C5D056D21B450CE00DA16C9 /* ResetPasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
