@@ -125,7 +125,7 @@
                                     <color key="titleColor" red="1" green="0.24332304160000001" blue="0.27881965019999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="SOj-wU-iBj" kind="show" id="ab9-fo-rX5"/>
+                                    <segue destination="4tS-aP-Z6l" kind="show" id="U8q-3J-QGY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -674,9 +674,9 @@
                         <color key="selectedImageTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="cqc-ut-zeD" kind="relationship" relationship="viewControllers" id="c0O-fq-Wk0"/>
                         <segue destination="2g4-oD-crm" kind="relationship" relationship="viewControllers" id="3no-sO-B48"/>
-                        <segue destination="SOj-wU-iBj" kind="relationship" relationship="viewControllers" id="E5i-na-i9N"/>
+                        <segue destination="3Ye-OI-ytw" kind="relationship" relationship="viewControllers" id="nv0-sh-tP7"/>
+                        <segue destination="SOj-wU-iBj" kind="relationship" relationship="viewControllers" id="nn4-UC-czT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jnj-1k-1dZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1101,10 +1101,10 @@
             </objects>
             <point key="canvasLocation" x="-1933.3333333333335" y="109.82142857142857"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Item-->
         <scene sceneID="1gd-Zw-hHS">
             <objects>
-                <viewController id="3Ye-OI-ytw" customClass="TableViewController" customModule="GearShare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AvaliableProducts" id="3Ye-OI-ytw" customClass="TableViewController" customModule="GearShare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WOg-PO-3Jf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1184,6 +1184,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="s76-2j-o3T"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="nCc-1l-K4G"/>
                     <connections>
                         <outlet property="myButton" destination="CP5-lN-NHm" id="Hgu-EF-wpa"/>
                         <outlet property="myDuration" destination="E40-UU-SM3" id="jtL-MQ-dfo"/>
@@ -1202,9 +1203,9 @@
         <image name="map_marker.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="nn4-UC-czT"/>
         <segue reference="4pw-1e-uId"/>
         <segue reference="a8x-l8-9wQ"/>
         <segue reference="KnU-di-N2f"/>
-        <segue reference="ab9-fo-rX5"/>
     </inferredMetricsTieBreakers>
 </document>
