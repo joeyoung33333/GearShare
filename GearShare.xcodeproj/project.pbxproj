@@ -20,6 +20,12 @@
 		7C5D056A21B350F300DA16C9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5D056821B350F300DA16C9 /* SignUpViewController.swift */; };
 		7C5D056B21B350F300DA16C9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5D056921B350F300DA16C9 /* MapViewController.swift */; };
 		7C5D056D21B450CE00DA16C9 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5D056C21B450CE00DA16C9 /* ResetPasswordViewController.swift */; };
+		7C66881121B70C23000218FF /* camera@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA4777B21B4E7D100627BB9 /* camera@3x.png */; };
+		7C66881221B70C28000218FF /* map_marker@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA4777D21B4E7D100627BB9 /* map_marker@3x.png */; };
+		7C66881321B70C30000218FF /* map_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA4777F21B4E7D100627BB9 /* map_marker.png */; };
+		7C66881421B70C36000218FF /* face_ID@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA4778021B4E7D100627BB9 /* face_ID@3x.png */; };
+		7C66881521B70C39000218FF /* face_ID.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA4778121B4E7D100627BB9 /* face_ID.png */; };
+		7C66881621B70C3C000218FF /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA4778321B4E7D100627BB9 /* camera.png */; };
 		7C90732F21B496AC00923154 /* AppUITool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C90732E21B496AC00923154 /* AppUITool.swift */; };
 		7CA4778421B4E83E00627BB9 /* face_ID@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA4778221B4E7D100627BB9 /* face_ID@2x.png */; };
 		7CA4778521B4E88600627BB9 /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA4777E21B4E7D100627BB9 /* camera@2x.png */; };
@@ -351,14 +357,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C66881321B70C30000218FF /* map_marker.png in Resources */,
 				7CE3ADF3219CBD5200861698 /* LaunchScreen.storyboard in Resources */,
 				7C3E433221B342D600161FEC /* GoogleService-Info.plist in Resources */,
 				7C35D4C721B34CBA000F9EB4 /* CityViewController.xib in Resources */,
+				7C66881621B70C3C000218FF /* camera.png in Resources */,
 				7CA4778521B4E88600627BB9 /* camera@2x.png in Resources */,
+				7C66881521B70C39000218FF /* face_ID.png in Resources */,
+				7C66881421B70C36000218FF /* face_ID@3x.png in Resources */,
 				7CA4778621B4E89400627BB9 /* map_marker@2x.png in Resources */,
 				7CA4778421B4E83E00627BB9 /* face_ID@2x.png in Resources */,
+				7C66881121B70C23000218FF /* camera@3x.png in Resources */,
 				7CE3ADF0219CBD5200861698 /* Assets.xcassets in Resources */,
 				8C843B4F21B4B86A00CDCE6C /* gearShare_iOS_icons in Resources */,
+				7C66881221B70C28000218FF /* map_marker@3x.png in Resources */,
 				7CE3ADEE219CBD5000861698 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
