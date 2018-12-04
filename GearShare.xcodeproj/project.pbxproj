@@ -32,7 +32,6 @@
 		7CE3ADFE219CBD5200861698 /* GearShareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3ADFD219CBD5200861698 /* GearShareTests.swift */; };
 		7CE3AE09219CBD5200861698 /* GearShareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3AE08219CBD5200861698 /* GearShareUITests.swift */; };
 		8C0552A721B333DB00BF422B /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0552A621B333DB00BF422B /* PostViewController.swift */; };
-		8C1E1B6D21B4EF54003C67D9 /* ItemQueryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1E1B6C21B4EF54003C67D9 /* ItemQueryTableViewController.swift */; };
 		8C843B4F21B4B86A00CDCE6C /* gearShare_iOS_icons in Resources */ = {isa = PBXBuildFile; fileRef = 8C843B4E21B4B86A00CDCE6C /* gearShare_iOS_icons */; };
 		962288CD6963D30B7899B79D /* Pods_GearShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D68ABE91B04B23A4DD27850F /* Pods_GearShare.framework */; };
 		A05CB7C63BB6F60539AA0113 /* Pods_GearShareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E8FB50A29738F7F63F5108 /* Pods_GearShareTests.framework */; };
@@ -95,7 +94,6 @@
 		7CE3AE08219CBD5200861698 /* GearShareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearShareUITests.swift; sourceTree = "<group>"; };
 		7CE3AE0A219CBD5200861698 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C0552A621B333DB00BF422B /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
-		8C1E1B6C21B4EF54003C67D9 /* ItemQueryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemQueryTableViewController.swift; sourceTree = "<group>"; };
 		8C843B4E21B4B86A00CDCE6C /* gearShare_iOS_icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = gearShare_iOS_icons; sourceTree = SOURCE_ROOT; };
 		9FA8BFAB8984904199839182 /* Pods-GearShareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GearShareTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GearShareTests/Pods-GearShareTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A09828226E0F863F64A8F1EA /* Pods-GearShareUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GearShareUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GearShareUITests/Pods-GearShareUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -189,7 +187,6 @@
 				7CE3ADEA219CBD5000861698 /* ViewController.swift */,
 				8C0552A621B333DB00BF422B /* PostViewController.swift */,
 				7C5D056921B350F300DA16C9 /* MapViewController.swift */,
-				8C1E1B6C21B4EF54003C67D9 /* ItemQueryTableViewController.swift */,
 				7C12645621B58E7A00ECBDD8 /* EditUserViewController.swift */,
 				7C3B783E21B48C9500A15067 /* UserViewController.swift */,
 				7C35D4C621B34CBA000F9EB4 /* LoginViewController.swift */,
@@ -520,7 +517,6 @@
 				7C90732F21B496AC00923154 /* AppUITool.swift in Sources */,
 				7C12645721B58E7A00ECBDD8 /* EditUserViewController.swift in Sources */,
 				7CE3ADEB219CBD5000861698 /* ViewController.swift in Sources */,
-				8C1E1B6D21B4EF54003C67D9 /* ItemQueryTableViewController.swift in Sources */,
 				7C35D4C821B34CBA000F9EB4 /* LoginViewController.swift in Sources */,
 				7CE3ADE9219CBD5000861698 /* AppDelegate.swift in Sources */,
 				7C5D056A21B350F300DA16C9 /* SignUpViewController.swift in Sources */,
@@ -631,7 +627,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -686,7 +682,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

@@ -86,7 +86,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.hideKeyboardWhenTappedAround() 
         // Do any additional setup after loading the view, typically from a nib.
         self.imageView.image = UIImage(named: "blank_camera")
         self.imageView.layer.borderColor = UIColor.gray.cgColor
