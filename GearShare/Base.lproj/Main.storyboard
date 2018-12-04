@@ -156,26 +156,32 @@
             </objects>
             <point key="canvasLocation" x="1042" y="556"/>
         </scene>
-        <!--View Controller-->
+        <!--Gear View Controller-->
         <scene sceneID="dKa-Xm-naZ">
             <objects>
-                <viewController id="SOj-wU-iBj" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Gear" id="SOj-wU-iBj" customClass="GearViewController" customModule="GearShare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TG7-kY-VI1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zB8-RY-b4v">
-                                <rect key="frame" x="42" y="58" width="330" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zB8-RY-b4v">
+                                <rect key="frame" x="42" y="59" width="330" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="fN2-pq-g9T"/>
+                                    <constraint firstAttribute="width" constant="330" id="lgo-nX-icf"/>
+                                </constraints>
                                 <segments>
                                     <segment title="My Gear"/>
                                     <segment title="My Rentals"/>
                                     <segment title="Pending Rentals"/>
                                 </segments>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37v-lh-Ocx" customClass="RoundedButton" customModule="GearShare" customModuleProvider="target">
-                                <rect key="frame" x="192" y="94" width="56" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37v-lh-Ocx" customClass="RoundedButton" customModule="GearShare" customModuleProvider="target">
+                                <rect key="frame" x="175.5" y="97" width="63" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="63" id="5hj-rP-D6O"/>
+                                    <constraint firstAttribute="height" constant="42" id="Djp-rk-465"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="+"/>
                                 <connections>
@@ -184,6 +190,12 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zB8-RY-b4v" firstAttribute="centerY" secondItem="TG7-kY-VI1" secondAttribute="centerY" constant="-375" id="LWo-1f-3L8"/>
+                            <constraint firstItem="37v-lh-Ocx" firstAttribute="centerX" secondItem="TG7-kY-VI1" secondAttribute="centerX" id="Ov2-gU-nNJ"/>
+                            <constraint firstItem="zB8-RY-b4v" firstAttribute="centerX" secondItem="TG7-kY-VI1" secondAttribute="centerX" id="fZv-pr-pGz"/>
+                            <constraint firstItem="37v-lh-Ocx" firstAttribute="centerY" secondItem="TG7-kY-VI1" secondAttribute="centerY" constant="-330" id="yur-aP-mFU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="la8-b6-C2R"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="history" id="JY5-Oc-3mR"/>

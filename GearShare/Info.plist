@@ -43,5 +43,7 @@
 	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>Take a photo of your gear</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Would like to access document files</string>
 </dict>
 </plist>
