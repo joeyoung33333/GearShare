@@ -197,6 +197,8 @@
 				7C5D056C21B450CE00DA16C9 /* ResetPasswordViewController.swift */,
 				7C0740FD21B60CA400BABD86 /* GearViewController.swift */,
 				7C07410121B612D100BABD86 /* GearCell.swift */,
+				211A196F21B6CE0A00116459 /* TableViewCell.swift */,
+				211A197121B6CE2D00116459 /* TableViewController.swift */,
 				7CE3ADEC219CBD5000861698 /* Main.storyboard */,
 				7CE3ADF1219CBD5200861698 /* LaunchScreen.storyboard */,
 				7C35D4C521B34CBA000F9EB4 /* CityViewController.xib */,
@@ -205,8 +207,6 @@
 				7CA4777A21B4E7D100627BB9 /* Icons */,
 				7C3E433121B342D500161FEC /* GoogleService-Info.plist */,
 				7CE3ADF4219CBD5200861698 /* Info.plist */,
-				211A196F21B6CE0A00116459 /* TableViewCell.swift */,
-				211A197121B6CE2D00116459 /* TableViewController.swift */,
 			);
 			path = GearShare;
 			sourceTree = "<group>";
