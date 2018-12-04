@@ -48,7 +48,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 for document in querySnapshot!.documents {
                     let docData = document.data()
                     self.products.append(docData["item_name"] as! String)
-                    let priceStr = docData["pricePerDay"] as! String
+                    let priceStr = docData["price_per_day"] as! String
                     self.prices.append("$" + priceStr)
                     print("\(document.documentID) => \(document.data())")
                 }
