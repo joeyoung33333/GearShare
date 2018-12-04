@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseFirestore
 
 class EditUserViewController: UIViewController {
     // outlet
@@ -16,16 +17,33 @@ class EditUserViewController: UIViewController {
     @IBOutlet weak var EditUserName: UITextField!
     @IBOutlet weak var EditUserAddress: UITextField!
     
+    var profileEntryRef: DocumentReference!
+    
     // action
     @IBAction func EditUserDoneButton(_ sender: Any) {
         if !(self.EditUserName.text == "" || self.EditUserAddress.text == ""){
-            let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+            let currUser = Auth.auth().currentUser
+            let changeRequest = currUser?.createProfileChangeRequest()
             changeRequest?.displayName = self.EditUserName.text
             changeRequest?.commitChanges { (error) in
                 if error == nil {
                     // then try to update email
                     Auth.auth().currentUser?.updateEmail(to: String(self.EditUserEmail.text!)) { (error) in
                         if error == nil {
+                            //Update user profile entry
+                            self.profileEntryRef = Firestore.firestore().document("users/\(currUser?.uid)");
+                            print(self.profileEntryRef)
+                            print("Address \(self.EditUserAddress.text!)")
+                            self.profileEntryRef.updateData([
+                                "address": self.EditUserAddress.text!
+                            ]) { err in
+                                if let err = err {
+                                    print("Error in updating entry \(err)")
+                                } else {
+                                    print("Update successful");
+                                }
+                            }
+                            
                             // go to the home view controller if the login is sucessful
                             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Home")
                             self.present(vc, animated: true, completion: nil)

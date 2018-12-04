@@ -718,6 +718,7 @@
                         <color key="badgeColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="UserProfileAddress" destination="Zcu-Fe-bUx" id="cTP-fy-luh"/>
                         <outlet property="UserProfileEmail" destination="Rgm-4C-YJN" id="EN6-V9-Zjn"/>
                         <outlet property="UserProfileName" destination="z93-Jv-IVS" id="h42-2u-uiy"/>
                         <outlet property="UserProfileUID" destination="su5-ke-NUz" id="EyX-xm-JWo"/>

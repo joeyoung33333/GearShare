@@ -9,12 +9,14 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseFirestore
 
 class UserViewController: UIViewController {
     // outlet
     @IBOutlet weak var UserProfileEmail: UILabel!
     @IBOutlet weak var UserProfileName: UILabel!
     @IBOutlet weak var UserProfileUID: UILabel!
+    @IBOutlet weak var UserProfileAddress: UILabel!
     
     // action
     // Log Out: method allows user to log out
@@ -56,6 +58,23 @@ class UserViewController: UIViewController {
             self.UserProfileEmail.text = user.email
             self.UserProfileUID.text = user.uid
             self.UserProfileName.text = user.displayName
+            
+            print("users/Optional(\"\(user.uid)\")")
+            let userProfileRef = Firestore.firestore().document("users/Optional(\"\(user.uid)\")");
+            //print(userProfileRef)
+            userProfileRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    let userProfile = document.data()
+                    let userAddress = userProfile?["address"] as? String ?? ""
+                    print("Document data: \(userAddress)")
+                    print(userAddress)
+                    self.UserProfileAddress.text = userAddress
+                } else {
+                    print("Document does not exist")
+                }
+            }
+            
+            
         } else{
             print("Not Logged In")
         }
