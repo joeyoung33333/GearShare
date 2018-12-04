@@ -37,8 +37,9 @@ class SignUpViewController: UIViewController {
                     
                     // create entry in database upon successful account creation
                     let user = user?.user
-                    let newUserProfile: [String: Any] = ["userID": user?.uid, "address": "", "rating": "5"]
-                    self.docRef = Firestore.firestore().document("users/\(String(describing: user?.uid))")
+                    let newUserProfile: [String: Any] = ["userID": user!.uid, "address": "", "rating": "5"]
+                    print("#\(user!.uid)")
+                    self.docRef = Firestore.firestore().document("users/\(user!.uid)")
                     self.docRef.setData(newUserProfile){ (error) in
                         if error==nil{
                             print("User: \(String(describing: user?.uid)) profile created")

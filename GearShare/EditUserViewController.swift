@@ -31,7 +31,7 @@ class EditUserViewController: UIViewController {
                     Auth.auth().currentUser?.updateEmail(to: String(self.EditUserEmail.text!)) { (error) in
                         if error == nil {
                             //Update user profile entry
-                            self.profileEntryRef = Firestore.firestore().document("users/\(currUser?.uid)");
+                            self.profileEntryRef = Firestore.firestore().document("users/\(currUser!.uid)");
                             print(self.profileEntryRef)
                             print("Address \(self.EditUserAddress.text!)")
                             self.profileEntryRef.updateData([
@@ -96,7 +96,22 @@ class EditUserViewController: UIViewController {
         if let user = user {
             self.EditUserEmail.text = user.email
             self.EditUserName.text = user.displayName
-            self.EditUserAddress.text = "Nothing Added"
+            //self.EditUserAddress.text = "Nothing Added"
+            let userProfileRef = Firestore.firestore().document("users/Optional(\"\(user.uid)\")");
+            //Pull user address from users db
+            userProfileRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    let userProfile = document.data()
+                    let userAddress = userProfile?["address"] as? String ?? ""
+                    print("Document data: \(userAddress)")
+                    print(userAddress)
+                    self.EditUserAddress.text = userAddress
+                } else {
+                    //Show that user address has not been added
+                    self.EditUserAddress.text = "Not added"
+                    print("Document does not exist")
+                }
+            }
         } else{
             print("Not Logged In")
         }

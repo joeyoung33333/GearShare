@@ -61,7 +61,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick-Up Address" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iFe-Jl-0pK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Condition" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iFe-Jl-0pK">
                                 <rect key="frame" x="40" y="643" width="94" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="8zK-t8-pgW"/>
@@ -118,6 +118,16 @@
                                     <action selector="takePhoto:" destination="cfY-bc-hQS" eventType="touchUpInside" id="v7Q-Hb-spa"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgS-m5-Zk3">
+                                <rect key="frame" x="40" y="418" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="1" green="0.24332304160000001" blue="0.27881965019999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="SOj-wU-iBj" kind="show" id="ab9-fo-rX5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -147,7 +157,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="imageView" destination="8xe-6E-3bg" id="j9g-Sm-5ra"/>
-                        <outlet property="itemAddress" destination="EUh-Fb-iQF" id="g9a-Ee-9x5"/>
+                        <outlet property="itemCondition" destination="EUh-Fb-iQF" id="1mS-5O-55c"/>
                         <outlet property="itemName" destination="tZZ-JT-y9O" id="MKg-Od-O4N"/>
                         <outlet property="priceDay" destination="dqO-JN-te2" id="muN-4h-wHX"/>
                     </connections>
@@ -987,5 +997,6 @@
         <segue reference="4pw-1e-uId"/>
         <segue reference="a8x-l8-9wQ"/>
         <segue reference="KnU-di-N2f"/>
+        <segue reference="ab9-fo-rX5"/>
     </inferredMetricsTieBreakers>
 </document>

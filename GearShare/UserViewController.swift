@@ -59,8 +59,10 @@ class UserViewController: UIViewController {
             self.UserProfileUID.text = user.uid
             self.UserProfileName.text = user.displayName
             
-            print("users/Optional(\"\(user.uid)\")")
-            let userProfileRef = Firestore.firestore().document("users/Optional(\"\(user.uid)\")");
+            //print("users/Optional(\"\(user.uid)\")") //Debug log for db path
+            
+            //Retreive user address from users db
+            let userProfileRef = Firestore.firestore().document("users/\(user.uid)");
             //print(userProfileRef)
             userProfileRef.getDocument { (document, error) in
                 if let document = document, document.exists {

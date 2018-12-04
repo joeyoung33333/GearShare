@@ -15,11 +15,15 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
     //@IBOutlet weak var userName: UITextField!
     @IBOutlet weak var itemName: UITextField!
     @IBOutlet weak var priceDay: UITextField!
-    @IBOutlet weak var itemAddress: UITextField!
+    @IBOutlet weak var itemCondition: UITextField!
     
     @IBOutlet weak var imageView: UIImageView!
-    let demoUserId = "TestUser01"
+    //let demoUserId = "TestUser01"
     var docRef: DocumentReference!
+    
+    //Retrieve information from current user's user profile from usersdb
+    var user = Auth.auth().currentUser
+    var userAddress: String!
     
     var imagePickerController: UIImagePickerController!
     
@@ -34,7 +38,6 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         imagePickerController.dismiss(animated: true, completion: nil)
         imageView.image = info[.originalImage] as? UIImage
         imageView.contentMode = UIView.ContentMode.scaleAspectFit
-        //imageView.image = info[,]
     }
 
     
@@ -44,9 +47,9 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         //guard let userNameEntry = userName.text, !userNameEntry.isEmpty else {return}
         guard let itemNameEntry = itemName.text, !itemNameEntry.isEmpty else {return}
         guard let priceDayEntry = priceDay.text, !priceDayEntry.isEmpty else {return}
-        guard let itemAddressEntry = itemAddress.text, !itemAddressEntry.isEmpty else {return}
-        let itemEntry: [String: Any] = ["userID": self.demoUserId, "item": itemNameEntry, "pricePerDay": priceDayEntry, "requested": "false", "address": itemAddressEntry]
-        let userSlug = "\(demoUserId)-\(itemNameEntry)"
+        guard let itemConditionEntry = itemCondition.text, !itemConditionEntry.isEmpty else {return}
+        let itemEntry: [String: Any] = ["ownerUID": user!.uid, "item_name": itemNameEntry, "pricePerDay": priceDayEntry, "requested": "false", "address": self.userAddress, "curr_renter_uid": "", "item_condition": itemConditionEntry]
+        let userSlug = "\(user!.uid)-\(itemNameEntry)"
         print("USER SLUG: "+userSlug);
         docRef = Firestore.firestore().document("items/\(userSlug)")
         docRef.setData(itemEntry){ (error) in
@@ -55,7 +58,8 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
                 
                 self.itemName.text = ""
                 self.priceDay.text = ""
-                self.itemAddress.text = ""
+                self.itemCondition.text = ""
+                
                 self.imageView.image = UIImage(named: "blank_camera")
                 
                 // go to the home view controller if the login is sucessful
@@ -95,6 +99,18 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         imagePickerController.sourceType = .camera
         present(imagePickerController, animated: true, completion: nil)
         */
+        let userProfileRef = Firestore.firestore().document("users/\(user!.uid)");
+        //print(userProfileRef)
+        userProfileRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let userProfile = document.data()
+                self.userAddress = userProfile?["address"] as? String ?? ""
+                print("Document data: \(self.userAddress!)")
+                print(self.userAddress)
+            } else {
+                print("Document does not exist")
+            }
+        }
     }
     
     
