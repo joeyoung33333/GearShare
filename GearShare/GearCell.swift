@@ -11,13 +11,21 @@ import Firebase
 import FirebaseAuth
 
 class GearCell: UITableViewCell {
-    // outlets
-    @IBOutlet weak var GearCellImage: UIImageView!
-    @IBOutlet weak var GearCellProductName: UILabel!
-    @IBOutlet weak var GearCellPrice: UILabel!
     
-    // actions
+    @IBOutlet weak var productImage: UIImageView!
+    @IBOutlet weak var productName: UILabel!
+    @IBOutlet weak var productPrice: UILabel!
+    @IBOutlet weak var productSwitch: UISwitch!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
     
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
 
 }

@@ -342,10 +342,10 @@
                                     <constraint firstAttribute="width" constant="414" id="Urc-MZ-FTA"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="200" id="MWO-M8-9VW" customClass="TableViewCell" customModule="GearShare" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="200" id="MWO-M8-9VW" customClass="GearCell" customModule="GearShare" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MWO-M8-9VW" id="y7w-Pc-Huv" customClass="TableViewCell" customModule="GearShare" customModuleProvider="target">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MWO-M8-9VW" id="y7w-Pc-Huv" customClass="GearCell" customModule="GearShare" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -378,12 +378,16 @@
                                             <outlet property="myLabel" destination="FQK-M5-cth" id="7G2-aO-7hX"/>
                                             <outlet property="myPrice" destination="2BR-pQ-EkY" id="ZYy-M0-DMb"/>
                                             <outlet property="mySwitch" destination="DzR-mG-TRa" id="D7l-8v-784"/>
+                                            <outlet property="productImage" destination="a9e-oR-jFO" id="g8P-c5-lE9"/>
+                                            <outlet property="productName" destination="FQK-M5-cth" id="Zyj-MZ-LCa"/>
+                                            <outlet property="productPrice" destination="2BR-pQ-EkY" id="2No-Rx-UZl"/>
+                                            <outlet property="productSwitch" destination="DzR-mG-TRa" id="cio-XH-zC2"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="3Ye-OI-ytw" id="tz1-Um-QkF"/>
-                                    <outlet property="delegate" destination="3Ye-OI-ytw" id="5ge-vK-PRw"/>
+                                    <outlet property="dataSource" destination="SOj-wU-iBj" id="A1y-JY-Ekc"/>
+                                    <outlet property="delegate" destination="SOj-wU-iBj" id="i0b-ky-T4S"/>
                                 </connections>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zB8-RY-b4v">
@@ -427,6 +431,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="My Gear" image="camera.png" selectedImage="camera.png" id="JY5-Oc-3mR"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="gearTable" destination="c1p-Ot-bym" id="gNm-5k-NRe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z7N-Rx-oWh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1319,6 +1326,7 @@
         <image name="map_marker.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="nnl-MZ-CKV"/>
         <segue reference="J3j-VI-SmG"/>
         <segue reference="U8q-3J-QGY"/>
         <segue reference="kIZ-sK-st0"/>

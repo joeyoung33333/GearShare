@@ -11,60 +11,66 @@ import Firebase
 import FirebaseAuth
 import FirebaseFirestore
 
-class GearViewController: UIViewController {
-    // outlets
+class GearViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    // actions
+    @IBOutlet weak var gearTable: UITableView!
     var db = Firestore.firestore()
-    
-    
     var gearItems = [String]()
+    var gearPrices = [String]()
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return gearItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GearCell
+        cell.productImage.image = UIImage(named: (gearItems[indexPath.row] + ".jpg"))
+        cell.productName.text = gearItems[indexPath.row]
+        cell.productPrice.text = gearPrices[indexPath.row]
+        return cell
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.gearTable.rowHeight = 200
         self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
         
-        
-        // Query All Documents in Collection: get all firebase database reference
-        db.collection("rental_items").getDocuments() { (querySnapshot, err) in
-            print("All Documents")
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
-                }
-            }
-        }
-        
-        
         // Query all items where the field is equal to ...
-        db.collection("rental_items").whereField("Product_Condition", isEqualTo: 8)
-            .getDocuments() { (querySnapshot, err) in
-                print("Query all documents with Rating Field == 5")
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    for document in querySnapshot!.documents {
-                        print("\(document.documentID) => \(document.data())")
+        let user = Auth.auth().currentUser
+        if let user = user {
+            let userUID = user.uid
+            
+            db.collection("rental").whereField("owner_UID", isEqualTo: userUID)
+                .getDocuments() { (querySnapshot, error) in
+                    if let error = error {
+                        print("Error getting documents from authenticated user: \(error)")
+                        let alertController = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .alert)
+                        
+                        let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                        alertController.addAction(defaultAction)
+                        
+                        self.present(alertController, animated: true, completion: nil)
+                    } else {
+                        for document in querySnapshot!.documents {
+                            let docData = document.data()
+                            self.gearItems.append(docData["item_name"] as! String)
+                            let priceStr = docData["price_per_day"] as! String
+                            self.gearPrices.append("$" + priceStr)
+                            print("\(document.documentID) => \(document.data())")
+                        }
+                        self.gearTable.reloadData()
                     }
                 }
-        }
-        
-        // Query One Specific Document: gets one specified document
-        db.collection("rental_items").document("964ZrTnR3ot9iGHVFOgs").getDocument { (document, error) in
-            print("One Specific Document")
-            if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                print("Document data: \(dataDescription)")
             } else {
-                print("Document does not exist")
+                print("Unable to validate user and query their gear")
+            
+                }
             }
-        }
-        
-        
-    }
+    
 
 }
