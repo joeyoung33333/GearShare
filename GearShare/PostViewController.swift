@@ -48,7 +48,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         guard let itemNameEntry = itemName.text, !itemNameEntry.isEmpty else {return}
         guard let priceDayEntry = priceDay.text, !priceDayEntry.isEmpty else {return}
         guard let itemConditionEntry = itemCondition.text, !itemConditionEntry.isEmpty else {return}
-        let itemEntry: [String: Any] = ["ownerUID": user!.uid, "item_name": itemNameEntry, "pricePerDay": priceDayEntry, "requested": "false", "address": self.userAddress, "curr_renter_uid": "", "item_condition": itemConditionEntry]
+        let itemEntry: [String: Any] = ["owner_UID": user!.uid, "item_name": itemNameEntry, "price_per_day": priceDayEntry, "status": "available", "address": self.userAddress, "curr_renter_UID": "", "req_user_UID": "","item_condition": itemConditionEntry, "status": "available"]
         let userSlug = "\(user!.uid)-\(itemNameEntry)"
         print("USER SLUG: "+userSlug);
         docRef = Firestore.firestore().document("items/\(userSlug)")

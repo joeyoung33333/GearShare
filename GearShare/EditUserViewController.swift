@@ -98,7 +98,7 @@ class EditUserViewController: UIViewController {
             self.EditUserEmail.text = user.email
             self.EditUserName.text = user.displayName
             //self.EditUserAddress.text = "Nothing Added"
-            let userProfileRef = Firestore.firestore().document("users/Optional(\"\(user.uid)\")");
+            let userProfileRef = Firestore.firestore().document("users/\(user.uid)");
             //Pull user address from users db
             userProfileRef.getDocument { (document, error) in
                 if let document = document, document.exists {
