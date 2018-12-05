@@ -32,7 +32,7 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("error here1")
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GearCell
-        cell.productImage.image = UIImage(named: (gearItems[indexPath.row] + ".jpg"))
+        cell.productImage.image = UIImage(named: gearItems[indexPath.row] + ".png")
         cell.productName.text = gearItems[indexPath.row]
         cell.productPrice.text = gearPrices[indexPath.row]
         return cell

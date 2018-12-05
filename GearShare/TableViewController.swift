@@ -33,7 +33,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-        cell.myImage.image = UIImage(named: (products[indexPath.row] + ".jpg"))
+        cell.myImage.image = UIImage(named: products[indexPath.row] + ".png")
         cell.myLabel.text = products[indexPath.row]
         cell.myPrice.text = prices[indexPath.row]
         return cell
