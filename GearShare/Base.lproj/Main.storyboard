@@ -488,10 +488,6 @@
                                                     <rect key="frame" x="17" y="40" width="120" height="120"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DzR-mG-TRa">
-                                                    <rect key="frame" x="332.5" y="84.5" width="51" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQK-M5-cth">
                                                     <rect key="frame" x="152" y="57.5" width="150" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -506,13 +502,20 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrh-dp-zP3">
+                                                    <rect key="frame" x="310" y="90" width="84" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="productImage" destination="a9e-oR-jFO" id="g8P-c5-lE9"/>
                                             <outlet property="productName" destination="FQK-M5-cth" id="Zyj-MZ-LCa"/>
                                             <outlet property="productPrice" destination="2BR-pQ-EkY" id="2No-Rx-UZl"/>
-                                            <outlet property="productSwitch" destination="DzR-mG-TRa" id="cio-XH-zC2"/>
+                                            <outlet property="productStatus" destination="wrh-dp-zP3" id="1Oz-HK-WbQ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -686,6 +689,9 @@
                                 <state key="normal" title="Request">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="Request_Item:" destination="l3F-Hg-cIT" eventType="touchUpInside" id="TNg-JJ-cDS"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B50-4s-caZ">
                                 <rect key="frame" x="157" y="571" width="200" height="24"/>
@@ -1524,17 +1530,6 @@
                                     <outlet property="delegate" destination="3Ye-OI-ytw" id="F9x-Ma-Fc8"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CP5-lN-NHm">
-                                <rect key="frame" x="106" y="747" width="202" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="SkE-NI-BpD"/>
-                                    <constraint firstAttribute="width" constant="202" id="l8w-2p-7zj"/>
-                                </constraints>
-                                <state key="normal" title="Request Selected Products"/>
-                                <connections>
-                                    <action selector="buttonPress:" destination="3Ye-OI-ytw" eventType="touchUpInside" id="B3R-99-PLK"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find Gear" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UmC-fw-MTO">
                                 <rect key="frame" x="147.5" y="84" width="119.5" height="21"/>
                                 <constraints>
@@ -1571,9 +1566,7 @@
                         <constraints>
                             <constraint firstItem="UmC-fw-MTO" firstAttribute="centerX" secondItem="WOg-PO-3Jf" secondAttribute="centerX" id="AmE-yP-ulB"/>
                             <constraint firstItem="nxJ-ew-6yy" firstAttribute="centerX" secondItem="WOg-PO-3Jf" secondAttribute="centerX" id="GiA-rb-WUU"/>
-                            <constraint firstItem="s76-2j-o3T" firstAttribute="bottom" secondItem="CP5-lN-NHm" secondAttribute="bottom" constant="35" id="Gj1-si-Pxb"/>
                             <constraint firstItem="s76-2j-o3T" firstAttribute="bottom" secondItem="MCA-rb-q41" secondAttribute="bottom" constant="20" id="UgC-fL-Hnf"/>
-                            <constraint firstItem="CP5-lN-NHm" firstAttribute="centerX" secondItem="WOg-PO-3Jf" secondAttribute="centerX" id="ccM-uZ-02K"/>
                             <constraint firstItem="s76-2j-o3T" firstAttribute="trailing" secondItem="MCA-rb-q41" secondAttribute="trailing" constant="20" id="jQU-NC-Pev"/>
                             <constraint firstItem="czT-UT-wWu" firstAttribute="centerY" secondItem="WOg-PO-3Jf" secondAttribute="centerY" constant="-300" id="pBP-3G-oeN"/>
                             <constraint firstItem="nxJ-ew-6yy" firstAttribute="centerY" secondItem="WOg-PO-3Jf" secondAttribute="centerY" constant="47" id="s22-7u-5Kj"/>
@@ -1584,7 +1577,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="nCc-1l-K4G"/>
                     <connections>
-                        <outlet property="myButton" destination="CP5-lN-NHm" id="Hgu-EF-wpa"/>
                         <outlet property="myHeadLabel" destination="UmC-fw-MTO" id="8Ja-tW-IS7"/>
                         <outlet property="myTable" destination="nxJ-ew-6yy" id="xW3-7D-pgU"/>
                     </connections>
@@ -1601,7 +1593,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4pw-1e-uId"/>
-        <segue reference="U8q-3J-QGY"/>
+        <segue reference="XNj-va-azD"/>
         <segue reference="kIZ-sK-st0"/>
         <segue reference="vV2-fT-4vk"/>
     </inferredMetricsTieBreakers>

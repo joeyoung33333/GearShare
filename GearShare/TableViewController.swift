@@ -22,6 +22,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var products = [String]()
     var prices = [String]()
     var condition = [String]()
+    var documents = [String]()
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -48,6 +49,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         vc.getPrice = prices[indexPath.row]
         vc.getName = products[indexPath.row]
         vc.getCondition = condition[indexPath.row]
+        vc.getItemID = documents[indexPath.row]
         self.present(vc, animated: true, completion: nil)
         
     }
@@ -61,11 +63,15 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             } else {
                 for document in querySnapshot!.documents {
                     let docData = document.data()
-                    self.products.append(docData["item_name"] as! String)
+                    let itemName = docData["item_name"] as! String
+                    self.products.append(itemName)
                     let priceStr = docData["price_per_day"] as! String
                     self.prices.append("$" + priceStr)
                     let conditionStr = docData["item_condition"] as! String
                     self.condition.append(conditionStr)
+                    let uid = docData["owner_UID"] as! String
+                    let documentName = "\(String(describing: uid))-\(String(describing: itemName))"
+                    self.documents.append(documentName)
                     print("\(document.documentID) => \(document.data())")
                 }
                 print(self.products)

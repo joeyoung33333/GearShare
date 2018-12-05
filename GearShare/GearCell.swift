@@ -15,7 +15,8 @@ class GearCell: UITableViewCell {
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productPrice: UILabel!
-    @IBOutlet weak var productSwitch: UISwitch!
+    @IBOutlet weak var productStatus: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

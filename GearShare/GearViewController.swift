@@ -20,6 +20,7 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var gearItems = [String]()
     var gearPrices = [String]()
     var gearCondition = [String]()
+    var gearStatus = [String]()
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -35,6 +36,17 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.productImage.image = UIImage(named: gearItems[indexPath.row])
         cell.productName.text = gearItems[indexPath.row]
         cell.productPrice.text = gearPrices[indexPath.row]
+        if(gearStatus[indexPath.row] == "available"){
+            cell.productStatus.text = gearStatus[indexPath.row]
+            cell.productStatus.textColor = UIColor.green
+        } else if(gearStatus[indexPath.row] == "requested"){
+            cell.productStatus.text = gearStatus[indexPath.row]
+            cell.productStatus.textColor = UIColor.yellow
+        } else{
+            cell.productStatus.text = gearStatus[indexPath.row]
+            cell.productStatus.textColor = UIColor.red
+        }
+        
         return cell
     }
     
@@ -82,6 +94,8 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
                             self.gearPrices.append("$" + priceStr)
                              let conditionStr = docData["item_condition"] as! String
                             self.gearCondition.append(conditionStr)
+                            let statusStr = docData["status"] as! String
+                            self.gearStatus.append(statusStr)
                             print("\(document.documentID) => \(document.data())")
                         }
                         self.gearTable.reloadData()
