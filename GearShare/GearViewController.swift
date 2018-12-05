@@ -32,7 +32,7 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("error here1")
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GearCell
-        cell.productImage.image = UIImage(named: gearItems[indexPath.row] + ".png")
+        cell.productImage.image = UIImage(named: gearItems[indexPath.row])
         cell.productName.text = gearItems[indexPath.row]
         cell.productPrice.text = gearPrices[indexPath.row]
         return cell
@@ -43,7 +43,7 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let Storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = Storyboard.instantiateViewController(withIdentifier: "DetailGearViewController") as! DetailGearViewController
-        vc.getImage = UIImage(named: gearItems[indexPath.row] + ".png")!
+        vc.getImage = UIImage(named: gearItems[indexPath.row])!
         vc.getPrice = gearPrices[indexPath.row]
         vc.getName = gearItems[indexPath.row]
         vc.getCondition = gearCondition[indexPath.row]

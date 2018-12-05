@@ -33,7 +33,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-        cell.myImage.image = UIImage(named: products[indexPath.row] + ".png")
+        cell.myImage.image = UIImage(named: products[indexPath.row])
         cell.myLabel.text = products[indexPath.row]
         cell.myPrice.text = prices[indexPath.row]
         return cell
@@ -44,7 +44,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         let Storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = Storyboard.instantiateViewController(withIdentifier: "DetailProductViewController") as! DetailProductViewController
-        vc.getImage = UIImage(named: products[indexPath.row] + ".png")!
+        vc.getImage = UIImage(named: products[indexPath.row])!
         vc.getPrice = prices[indexPath.row]
         vc.getName = products[indexPath.row]
         vc.getCondition = condition[indexPath.row]
