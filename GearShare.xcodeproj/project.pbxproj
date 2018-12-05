@@ -40,6 +40,7 @@
 		7CE3ADFE219CBD5200861698 /* GearShareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3ADFD219CBD5200861698 /* GearShareTests.swift */; };
 		7CE3AE09219CBD5200861698 /* GearShareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3AE08219CBD5200861698 /* GearShareUITests.swift */; };
 		8C0552A721B333DB00BF422B /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0552A621B333DB00BF422B /* PostViewController.swift */; };
+		8C71CDC321B84AFC00D70B0F /* iOS_inApp_icons in Resources */ = {isa = PBXBuildFile; fileRef = 8C71CDC221B84AFC00D70B0F /* iOS_inApp_icons */; };
 		8C843B4F21B4B86A00CDCE6C /* gearShare_iOS_icons in Resources */ = {isa = PBXBuildFile; fileRef = 8C843B4E21B4B86A00CDCE6C /* gearShare_iOS_icons */; };
 		962288CD6963D30B7899B79D /* Pods_GearShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D68ABE91B04B23A4DD27850F /* Pods_GearShare.framework */; };
 		A05CB7C63BB6F60539AA0113 /* Pods_GearShareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E8FB50A29738F7F63F5108 /* Pods_GearShareTests.framework */; };
@@ -104,6 +105,7 @@
 		7CE3AE08219CBD5200861698 /* GearShareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearShareUITests.swift; sourceTree = "<group>"; };
 		7CE3AE0A219CBD5200861698 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C0552A621B333DB00BF422B /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		8C71CDC221B84AFC00D70B0F /* iOS_inApp_icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = iOS_inApp_icons; sourceTree = SOURCE_ROOT; };
 		8C843B4E21B4B86A00CDCE6C /* gearShare_iOS_icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = gearShare_iOS_icons; sourceTree = SOURCE_ROOT; };
 		9FA8BFAB8984904199839182 /* Pods-GearShareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GearShareTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GearShareTests/Pods-GearShareTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A09828226E0F863F64A8F1EA /* Pods-GearShareUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GearShareUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GearShareUITests/Pods-GearShareUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 		7CE3ADE7219CBD5000861698 /* GearShare */ = {
 			isa = PBXGroup;
 			children = (
+				8C71CDC221B84AFC00D70B0F /* iOS_inApp_icons */,
 				7C90732E21B496AC00923154 /* AppUITool.swift */,
 				7CE3ADE8219CBD5000861698 /* AppDelegate.swift */,
 				7CE3ADEA219CBD5000861698 /* ViewController.swift */,
@@ -372,6 +375,7 @@
 				7CA4778421B4E83E00627BB9 /* face_ID@2x.png in Resources */,
 				7C66881121B70C23000218FF /* camera@3x.png in Resources */,
 				7CE3ADF0219CBD5200861698 /* Assets.xcassets in Resources */,
+				8C71CDC321B84AFC00D70B0F /* iOS_inApp_icons in Resources */,
 				8C843B4F21B4B86A00CDCE6C /* gearShare_iOS_icons in Resources */,
 				7C66881221B70C28000218FF /* map_marker@3x.png in Resources */,
 				7CE3ADEE219CBD5000861698 /* Main.storyboard in Resources */,
