@@ -39,12 +39,19 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if(gearStatus[indexPath.row] == "available"){
             cell.productStatus.text = gearStatus[indexPath.row]
             cell.productStatus.textColor = UIColor.green
+            cell.productStatus.shadowColor = UIColor.gray
+            cell.productStatus.shadowOffset = CGSize(width: 0.5, height: 0.5)
         } else if(gearStatus[indexPath.row] == "requested"){
             cell.productStatus.text = gearStatus[indexPath.row]
             cell.productStatus.textColor = UIColor.yellow
+            cell.productStatus.shadowColor = UIColor.gray
+            cell.productStatus.shadowOffset = CGSize(width: 0.5, height: 0.5)
         } else{
             cell.productStatus.text = gearStatus[indexPath.row]
             cell.productStatus.textColor = UIColor.red
+            cell.productStatus.shadowColor = UIColor.gray
+            cell.productStatus.shadowOffset = CGSize(width: 0.5, height: 0.5)
+            
         }
         
         return cell
