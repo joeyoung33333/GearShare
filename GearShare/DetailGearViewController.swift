@@ -26,7 +26,7 @@ class DetailGearViewController: UIViewController {
         detailImage.image = getImage
         detailName.text = getName
         detialPrice.text = getPrice
-        detialCondtion = getCondition
+        detialCondtion.text = getCondition
 
         // Do any additional setup after loading the view.
     }

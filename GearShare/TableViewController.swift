@@ -40,14 +40,14 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Row Clicked")
+        print("Row clicked")
         
         let Storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = Storyboard.instantiateViewController(withIdentifier: "DetailProductViewController") as! DetailProductViewController
     
-        vc.getPrice = prices[indexPath.row] as! String
-        vc.getName = products[indexPath.row] as! String
-        vc.getCondition = condition[indexPath.row] as! String
+        vc.getPrice = prices[indexPath.row]
+        vc.getName = products[indexPath.row]
+        vc.getCondition = condition[indexPath.row]
         self.present(vc, animated: true, completion: nil)
         
     }

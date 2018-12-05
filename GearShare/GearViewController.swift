@@ -19,6 +19,7 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // test cases
     var gearItems = [String]()
     var gearPrices = [String]()
+    var gearCondition = [String]()
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -35,6 +36,21 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.productName.text = gearItems[indexPath.row]
         cell.productPrice.text = gearPrices[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Row clicked")
+        
+        let Storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = Storyboard.instantiateViewController(withIdentifier: "DetailGearViewController") as! DetailGearViewController
+        
+        vc.getPrice = gearPrices[indexPath.row]
+        vc.getName = gearItems[indexPath.row]
+        vc.getCondition = gearCondition[indexPath.row]
+        
+        
+        self.present(vc, animated: true, completion: nil)
+        
     }
     
     override func viewDidLoad() {
@@ -64,6 +80,8 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
                             self.gearItems.append(docData["item_name"] as! String)
                             let priceStr = docData["price_per_day"] as! String
                             self.gearPrices.append("$" + priceStr)
+                             let conditionStr = docData["item_condition"] as! String
+                            self.gearCondition.append(conditionStr)
                             print("\(document.documentID) => \(document.data())")
                         }
                         self.gearTable.reloadData()
