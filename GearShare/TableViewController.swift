@@ -44,7 +44,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         let Storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = Storyboard.instantiateViewController(withIdentifier: "DetailProductViewController") as! DetailProductViewController
-    
+        vc.getImage = UIImage(named: products[indexPath.row] + ".png")!
         vc.getPrice = prices[indexPath.row]
         vc.getName = products[indexPath.row]
         vc.getCondition = condition[indexPath.row]
