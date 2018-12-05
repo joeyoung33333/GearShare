@@ -21,6 +21,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     // test cases
     var products = [String]()
     var prices = [String]()
+    var condition = [String]()
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -38,6 +39,19 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Row Clicked")
+        
+        let Storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = Storyboard.instantiateViewController(withIdentifier: "DetailProductViewController") as! DetailProductViewController
+    
+        vc.getPrice = prices[indexPath.row] as! String
+        vc.getName = products[indexPath.row] as! String
+        vc.getCondition = condition[indexPath.row] as! String
+        self.present(vc, animated: true, completion: nil)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         db.collection("items").getDocuments() { (querySnapshot, err) in
@@ -50,6 +64,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     self.products.append(docData["item_name"] as! String)
                     let priceStr = docData["price_per_day"] as! String
                     self.prices.append("$" + priceStr)
+                    let conditionStr = docData["item_condition"] as! String
+                    self.condition.append(conditionStr)
                     print("\(document.documentID) => \(document.data())")
                 }
                 print(self.products)

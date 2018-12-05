@@ -15,6 +15,8 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBOutlet weak var gearTable: UITableView!
     var db = Firestore.firestore()
+    
+    // test cases
     var gearItems = [String]()
     var gearPrices = [String]()
     
@@ -27,6 +29,7 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("error here1")
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GearCell
         cell.productImage.image = UIImage(named: (gearItems[indexPath.row] + ".jpg"))
         cell.productName.text = gearItems[indexPath.row]
@@ -45,7 +48,7 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if let user = user {
             let userUID = user.uid
             
-            db.collection("rental").whereField("owner_UID", isEqualTo: userUID)
+            db.collection("items").whereField("owner_UID", isEqualTo: userUID)
                 .getDocuments() { (querySnapshot, error) in
                     if let error = error {
                         print("Error getting documents from authenticated user: \(error)")
@@ -64,6 +67,9 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
                             print("\(document.documentID) => \(document.data())")
                         }
                         self.gearTable.reloadData()
+                        print("GearViewController")
+                        print(self.gearItems)
+                        
                     }
                 }
             } else {
