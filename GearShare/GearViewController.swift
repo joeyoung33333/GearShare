@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseUI
 
 class GearViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -21,6 +22,7 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var gearPrices = [String]()
     var gearCondition = [String]()
     var gearStatus = [String]()
+    var userID: String!
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -33,7 +35,14 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("error here1")
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GearCell
-        cell.productImage.image = UIImage(named: gearItems[indexPath.row])
+        
+        // Code for loading image with SDWebImage
+        let placeholderImage = UIImage(named: gearItems[indexPath.row])
+        let itemImageRef = loadImageForItem(itemSlug: "\(userID!)-\(gearItems[indexPath.row])")
+        cell.productImage.sd_setImage(with: itemImageRef, placeholderImage: placeholderImage!)
+        
+        
+        //cell.productImage.image = UIImage(named: gearItems[indexPath.row])
         cell.productName.text = gearItems[indexPath.row]
         cell.productPrice.text = gearPrices[indexPath.row]
         if(gearStatus[indexPath.row] == "available"){
@@ -72,6 +81,13 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     }
     
+    // function to load referenceURL for the item
+    func loadImageForItem(itemSlug: String) -> StorageReference {
+        let storageRef = Storage.storage().reference()
+        let reference = storageRef.child("\(itemSlug).png")
+        return reference
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.gearTable.rowHeight = 200
@@ -82,7 +98,7 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let user = Auth.auth().currentUser
         if let user = user {
             let userUID = user.uid
-            
+            userID = user.uid
             db.collection("items").whereField("owner_UID", isEqualTo: userUID)
                 .getDocuments() { (querySnapshot, error) in
                     if let error = error {

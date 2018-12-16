@@ -11,6 +11,9 @@ target 'GearShare' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod 'FirebaseUI/Storage'
+  pod 'SDWebImage/WebP'
+
 
   target 'GearShareTests' do
     inherit! :search_paths

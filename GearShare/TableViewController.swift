@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import FirebaseUI
 
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -34,7 +35,13 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-        cell.myImage.image = UIImage(named: products[indexPath.row])
+        //cell.myImage.image = UIImage(named: products[indexPath.row])
+        
+        // Code for loading image with SDWebImage
+        let placeholderImage = UIImage(named: products[indexPath.row])
+        let itemImageRef = loadImageForItem(itemSlug: "\(documents[indexPath.row])")
+        cell.myImage.sd_setImage(with: itemImageRef, placeholderImage: placeholderImage!)
+        
         cell.myLabel.text = products[indexPath.row]
         cell.myPrice.text = prices[indexPath.row]
         return cell
@@ -52,6 +59,13 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         vc.getItemID = documents[indexPath.row]
         self.present(vc, animated: true, completion: nil)
         
+    }
+    
+    //Function to load image from storage
+    func loadImageForItem(itemSlug: String) -> StorageReference {
+        let storageRef = Storage.storage().reference()
+        let reference = storageRef.child("\(itemSlug).png")
+        return reference
     }
     
     override func viewDidLoad() {
