@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let db = Firestore.firestore()
         let settings = db.settings
+        let storage = Storage.storage()
         settings.areTimestampsInSnapshotsEnabled = true
         db.settings = settings
         

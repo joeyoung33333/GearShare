@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-import FirebaseFirestore
+import FirebaseFirestore 
 
 class PostViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     // User item information inputs
@@ -32,14 +32,33 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         imagePickerController.delegate = self
         imagePickerController.sourceType = .camera
         present(imagePickerController, animated: true, completion: nil)
-    }
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         imagePickerController.dismiss(animated: true, completion: nil)
         imageView.image = info[.originalImage] as? UIImage
         imageView.contentMode = UIView.ContentMode.scaleAspectFit
+        
     }
-
+    
+    //Save image to Firebase storage
+    func uploadImageToStorage(itemSlug: String, itemImage: UIImageView) {
+        print("Uploading \(itemSlug) to Storage")
+        let storageRef = Storage.storage().reference().child(itemSlug);
+        if let imageUploadData = itemImage.image?.pngData() {
+            storageRef.putData(imageUploadData, metadata: nil, completion: { (metadata, error) in
+                if error != nil {
+                    print(error!)
+                    return
+                } else {
+                    print(metadata!)
+                }
+                
+            })
+        }
+        
+    }
     
     // On-click save entry
     @IBAction func postItem(_ sender: UIButton) {
@@ -54,6 +73,9 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         docRef = Firestore.firestore().document("items/\(userSlug)")
         docRef.setData(itemEntry){ (error) in
             if error == nil {
+                // upload image to firebase storage
+                let itemImgSlug = "\(userSlug).png"
+                self.uploadImageToStorage(itemSlug: itemImgSlug, itemImage: self.imageView)
                 // alert user of successful post
                 
                 self.itemName.text = ""
@@ -62,7 +84,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
                 
                 self.imageView.image = UIImage(named: "blank_camera")
                 
-                // go to the home view controller if the login is sucessful
+                // go to the home view controller if the post is sucessful
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Home")
                 self.present(vc, animated: true, completion: nil)
 

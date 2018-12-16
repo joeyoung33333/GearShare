@@ -10,6 +10,7 @@ target 'GearShare' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'Firebase/Database'
+  pod 'Firebase/Storage'
 
   target 'GearShareTests' do
     inherit! :search_paths
