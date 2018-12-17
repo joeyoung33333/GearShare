@@ -38,9 +38,26 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         // Code for loading image with SDWebImage
         let placeholderImage = UIImage(named: gearItems[indexPath.row])
-        let itemImageRef = loadImageForItem(itemSlug: "\(userID!)-\(gearItems[indexPath.row])")
-        cell.productImage.sd_setImage(with: itemImageRef, placeholderImage: placeholderImage!)
-        
+
+        // Code for loading image with SDWebImage
+        let storageRef = Storage.storage().reference()
+        let reference = storageRef.child("\(userID!)-\(gearItems[indexPath.row]).png")
+        reference.downloadURL { url, error in
+            if let error = error {
+                print(error)
+                cell.productImage.image = UIImage(named: self.gearItems[indexPath.row])
+            } else {
+                cell.productImage.sd_setImage(with: url, placeholderImage: placeholderImage, completed: { (image, error, type, url) in
+                    if let error=error {
+                        print (error)
+                    } else {
+                        //cell.productImage.image?.imageOrientation
+                        print ("Image loaded")
+                    }
+                })
+            }
+            
+        }
         
         //cell.productImage.image = UIImage(named: gearItems[indexPath.row])
         cell.productName.text = gearItems[indexPath.row]

@@ -9,7 +9,8 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
-import FirebaseUI
+//import FirebaseUI
+import SDWebImage
 
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -39,8 +40,26 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         // Code for loading image with SDWebImage
         let placeholderImage = UIImage(named: products[indexPath.row])
-        let itemImageRef = loadImageForItem(itemSlug: "\(documents[indexPath.row])")
-        cell.myImage.sd_setImage(with: itemImageRef, placeholderImage: placeholderImage!)
+        let storageRef = Storage.storage().reference()
+        let reference = storageRef.child("\(documents[indexPath.row]).png")
+        reference.downloadURL { url, error in
+            if let error = error {
+                print(error)
+                cell.myImage.image = UIImage(named: self.products[indexPath.row])
+            } else {
+                cell.myImage.sd_setImage(with: url, placeholderImage: placeholderImage, completed: { (image, error, type, url) in
+                    if let error=error {
+                        print (error)
+                    } else {
+                        print ("Image loaded")
+                    }
+                })
+            }
+            
+        }
+        //print("ref! \(itemImageRef)")
+        
+        //cell.myImage.sd_setImage(with: itemImageRef, placeholderImage: placeholderImage)
         
         cell.myLabel.text = products[indexPath.row]
         cell.myPrice.text = prices[indexPath.row]
@@ -61,12 +80,30 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
     }
     
+    /*
     //Function to load image from storage
-    func loadImageForItem(itemSlug: String) -> StorageReference {
+    func loadImageForItem(itemSlug: String) -> String {
+        //print("Image to retrieve: \(itemSlug)")
         let storageRef = Storage.storage().reference()
         let reference = storageRef.child("\(itemSlug).png")
-        return reference
+        var imageURL: String?
+        print("Image to retrieve: \(reference)")
+        
+        reference.downloadURL { url, error in
+            if let error = error {
+                print(error)
+                imageURL = ""
+            } else {
+                print(url!)
+                imageURL = url!.absoluteString
+            }
+            
+        }
+
+        
+        return imageURL ?? "invalid url"
     }
+    */
     
     override func viewDidLoad() {
         super.viewDidLoad()
