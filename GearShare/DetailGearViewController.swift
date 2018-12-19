@@ -8,6 +8,8 @@
 
 import UIKit
 
+// Approval subview - This view controller allows user to make owners to approve or reject rental requests for their products. Owners could see detail profile information of the user making the request to help inform their decision.
+
 class DetailGearViewController: UIViewController {
     var getName = String()
     var getPrice = String()
@@ -20,6 +22,7 @@ class DetailGearViewController: UIViewController {
     @IBOutlet weak var detialPrice: UILabel!
     @IBOutlet weak var detialCondtion: UILabel!
     
+    //Dimiss current view controller
     @IBAction func backToTable(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)

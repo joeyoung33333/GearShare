@@ -12,6 +12,8 @@ import FirebaseAuth
 import FirebaseFirestore
 import FirebaseUI
 
+// Gear view - This view controller allows product owners to review requests for rentals, uesrs can either approve or reject requests with renter's information provided to assist judgment
+
 class GearViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var gearTable: UITableView!
@@ -162,7 +164,6 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 }
             } else {
                 print("Unable to validate user and query their gear")
-            
                 }
             }
     
