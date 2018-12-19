@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 
+// Product subview - This view controller allows user to make rental requests to product owners. User should specific rental periods to help product owners make their approval judgments
+
 class DetailProductViewController: UIViewController {
     
     var db = Firestore.firestore()
@@ -25,11 +27,13 @@ class DetailProductViewController: UIViewController {
     @IBOutlet weak var detailPricePerDay: UILabel!
     @IBOutlet weak var detailItemCondition: UILabel!
     
+    //Dismiss current view controller
     @IBAction func backToTable(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
     }
     
+    // Function to make request for an item, changes status of item in database and records renter's profile
     @IBAction func Request_Item(_ sender: Any) {
         let docRef = db.collection("items").document(self.getItemID)
         print(getItemID)
@@ -85,7 +89,6 @@ class DetailProductViewController: UIViewController {
         detailItemName.text = getName
         detailPricePerDay.text = getPrice
         detailItemCondition.text = getCondition
-        
 
         // Do any additional setup after loading the view.
     }

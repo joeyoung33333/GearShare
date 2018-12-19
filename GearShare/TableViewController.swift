@@ -11,6 +11,8 @@ import Firebase
 import FirebaseFirestore
 import SDWebImage
 
+// Item table - This view controller loads all items belonging to a specific user (after user clicked the location) and presents them in a table view - clicking a cell segues to a subview where user can request to rent an item
+
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var db = Firestore.firestore()
@@ -59,17 +61,15 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             }
             
         }
-        //print("ref! \(itemImageRef)")
         
-        //cell.myImage.sd_setImage(with: itemImageRef, placeholderImage: placeholderImage)
-        
+        // Populate cell with product information
         cell.myLabel.text = products[indexPath.row]
         cell.myPrice.text = prices[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Row clicked")
+        print("Row clicked") //Debug
         
         let Storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = Storyboard.instantiateViewController(withIdentifier: "DetailProductViewController") as! DetailProductViewController
@@ -114,6 +114,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     */
     
+    // Populate table view with all items from a specific user
     func populate() {
         db.collection("items").getDocuments() { (querySnapshot, err) in
             print("All Documents")
@@ -140,6 +141,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     
+    // Dimiss table and return to map view
     @IBAction func backToMap(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
