@@ -15,7 +15,6 @@ class UserViewController: UIViewController {
     // outlet
     @IBOutlet weak var UserProfileEmail: UILabel!
     @IBOutlet weak var UserProfileName: UILabel!
-    @IBOutlet weak var UserProfileUID: UILabel!
     @IBOutlet weak var UserProfileAddress: UILabel!
     
     // action
@@ -57,7 +56,6 @@ class UserViewController: UIViewController {
         let user = Auth.auth().currentUser
         if let user = user {
             self.UserProfileEmail.text = user.email
-            self.UserProfileUID.text = user.uid
             self.UserProfileName.text = user.displayName
             
             //print("users/Optional(\"\(user.uid)\")") //Debug log for db path
