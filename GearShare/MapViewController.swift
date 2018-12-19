@@ -126,10 +126,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     // segue when you tap on the button for the pin
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
+            let current = view.annotation!.title!!
             let Storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = Storyboard.instantiateViewController(withIdentifier: "AvaliableProducts") as! TableViewController
-            print(address)
-            db.collection("items").whereField("address", isEqualTo: address).getDocuments() { (querySnapshot, err) in
+            
+            db.collection("items").whereField("address", isEqualTo: current).getDocuments() { (querySnapshot, err) in
                 print("All Documents")
                 if let err = err {
                     print("Error getting documents: \(err)")
