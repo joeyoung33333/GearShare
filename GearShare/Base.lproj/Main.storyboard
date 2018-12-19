@@ -1592,9 +1592,10 @@
         <image name="map_marker.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="1dV-uU-KlO"/>
         <segue reference="4pw-1e-uId"/>
         <segue reference="dGe-9z-mnW"/>
-        <segue reference="kIZ-sK-st0"/>
-        <segue reference="vV2-fT-4vk"/>
+        <segue reference="a8x-l8-9wQ"/>
+        <segue reference="KnU-di-N2f"/>
     </inferredMetricsTieBreakers>
 </document>

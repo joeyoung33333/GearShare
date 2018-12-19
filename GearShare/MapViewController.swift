@@ -109,7 +109,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                                 
                                 self.centerMapOnLocation(location: location)
                                 self.annotation.coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-                                self.annotation.title = "Current Location"
+                                self.annotation.title = "Your Address"
                                 self.map.addAnnotation(self.annotation)
                             }
                         }
@@ -123,13 +123,37 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         //        centerMapOnLocation(location: location)
     }
     
-    // When user taps on the disclosure button you can perform a segue to navigate to another view controller
+    // segue when you tap on the button for the pin
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
-            print("go to bed")
-            
-            //Perform a segue here to navigate to another viewcontroller
-            // On tapping the disclosure button you will get here
+            let Storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = Storyboard.instantiateViewController(withIdentifier: "AvaliableProducts") as! TableViewController
+            print(address)
+            db.collection("items").whereField("address", isEqualTo: address).getDocuments() { (querySnapshot, err) in
+                print("All Documents")
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        let docData = document.data()
+                        let itemName = docData["item_name"] as! String
+                        vc.products.append(itemName)
+                        print(itemName)
+                        let priceStr = docData["price_per_day"] as! String
+                        print(priceStr)
+                        vc.prices.append("$" + priceStr)
+                        let conditionStr = docData["item_condition"] as! String
+                        print(conditionStr)
+                        vc.condition.append(conditionStr)
+                        let uid = docData["owner_UID"] as! String
+                        let documentName = "\(String(describing: uid))-\(String(describing: itemName))"
+                        vc.documents.append(documentName)
+                        print(documentName)
+                    }
+                    self.present(vc, animated: true, completion: nil)
+                }
+            }
+            print("map pin clicked")
         }
     }
     
