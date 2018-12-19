@@ -44,39 +44,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             self.locationManager.startUpdatingLocation()
         }
         
-        // get all addresses except for current user's
-        db.collection("users").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    let docData = document.data()
-                    let add = docData["address"] as! String
-                    if add != self.address {
-                        self.addresses.append(add)
-                        print(add)
-                    }
-                }
-                for location in self.addresses {
-                    let ann = MKPointAnnotation()
-                    ann.title = location
-                    let geoCoder = CLGeocoder()
-                    geoCoder.geocodeAddressString(location) { (placemarks, error) in
-                        guard
-                            let placemarks = placemarks,
-                            let location = placemarks.first?.location
-                            else {
-                                // handle no location found
-                                return
-                        }
-                        ann.coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-                        self.map.addAnnotation(ann)
-                    }
-                }
-                
-            }
-        }
-        
         // get current user's address
         let user = Auth.auth().currentUser
         if let user = user {
@@ -96,7 +63,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                         for document in querySnapshot!.documents {
                             let docData = document.data()
                             self.address = (docData["address"] as! String)
-                            print(self.address)
                             let geoCoder = CLGeocoder()
                             geoCoder.geocodeAddressString(self.address) { (placemarks, error) in
                                 guard
@@ -106,11 +72,41 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                                         // handle no location found
                                         return
                                 }
-                                
                                 self.centerMapOnLocation(location: location)
-                                self.annotation.coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-                                self.annotation.title = "Your Address"
-                                self.map.addAnnotation(self.annotation)
+                            }
+                            // get all addresses except for current user's
+                            self.db.collection("users").getDocuments() { (querySnapshot, err) in
+                                if let err = err {
+                                    print("Error getting documents: \(err)")
+                                } else {
+                                    for document in querySnapshot!.documents {
+                                        let docData = document.data()
+                                        let add = docData["address"] as! String
+                                        print(add)
+                                        print(self.address)
+                                        if add != self.address {
+                                            self.addresses.append(add)
+                                        }
+                                    }
+                                    for location in self.addresses {
+                                        let ann = MKPointAnnotation()
+                                        var fullLocationArr = location.split{$0 == ","}.map(String.init)
+                                        ann.title = fullLocationArr[0]
+                                        ann.subtitle = location
+                                        let geoCoder = CLGeocoder()
+                                        geoCoder.geocodeAddressString(location) { (placemarks, error) in
+                                            guard
+                                                let placemarks = placemarks,
+                                                let location = placemarks.first?.location
+                                                else {
+                                                    // handle no location found
+                                                    return
+                                            }
+                                            ann.coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+                                            self.map.addAnnotation(ann)
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -126,7 +122,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     // segue when you tap on the button for the pin
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
-            let current = view.annotation!.title!!
+            let current = view.annotation!.subtitle!!
             if current != address {
                 let Storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc = Storyboard.instantiateViewController(withIdentifier: "AvaliableProducts") as! TableViewController
@@ -162,10 +158,19 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if !(annotation is MKUserLocation) {
             let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: String(annotation.hash))
-
-            let rightButton = UIButton(type: .contactAdd)
+            let smallRect = CGSize(width: 122, height: 22)
+            let rightButton = UIButton(frame: CGRect(origin: .zero, size: smallRect))
             rightButton.tag = annotation.hash
-
+            rightButton.backgroundColor = UIColor(hue: 0.55, saturation: 1, brightness: 0.89, alpha: 1.0)
+            rightButton.layer.cornerRadius = 5
+            rightButton.layer.borderWidth = 1
+            rightButton.layer.borderColor = UIColor.black.cgColor
+            let label = UILabel(frame: CGRect(x: -40, y: 3, width: 200, height: 15))
+            label.textAlignment = .center
+            label.text = "View Products"
+            label.textColor = .white
+            rightButton.addSubview(label)
+            
             pinView.animatesDrop = true
             pinView.canShowCallout = true
             pinView.rightCalloutAccessoryView = rightButton
