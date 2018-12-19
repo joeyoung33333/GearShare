@@ -10,23 +10,25 @@ import UIKit
 import Firebase
 import FirebaseFirestore 
 
+// Post - View Controller to allow users to post item listings to the database, including information regarding item name, price per day, item condition and current photo of items
+
 class PostViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     // User item information inputs
-    //@IBOutlet weak var userName: UITextField!
     @IBOutlet weak var itemName: UITextField!
     @IBOutlet weak var priceDay: UITextField!
     @IBOutlet weak var itemCondition: UITextField!
     
     @IBOutlet weak var imageView: UIImageView!
-    //let demoUserId = "TestUser01"
     var docRef: DocumentReference!
     
     //Retrieve information from current user's user profile from usersdb
     var user = Auth.auth().currentUser
     var userAddress: String!
     
+    //Holds image from camera
     var imagePickerController: UIImagePickerController!
     
+    //Initiates device camera, delegate to default camera controller
     @IBAction func takePhoto(_ sender: Any) {
         imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
@@ -35,6 +37,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         
     }
     
+    //Sets image view to image taken from device
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         imagePickerController.dismiss(animated: true, completion: nil)
         imageView.image = info[.originalImage] as? UIImage
@@ -45,6 +48,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
     //Save image to Firebase storage
     func uploadImageToStorage(itemSlug: String, itemImage: UIImageView) {
         print("Uploading \(itemSlug) to Storage")
+        //save image with unique slug
         let storageRef = Storage.storage().reference().child(itemSlug);
         if let imageUploadData = itemImage.image?.pngData() {
             storageRef.putData(imageUploadData, metadata: nil, completion: { (metadata, error) in
@@ -60,10 +64,8 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         
     }
     
-    // On-click save entry
+    // On-click of post button, save entry to database
     @IBAction func postItem(_ sender: UIButton) {
-        
-        //guard let userNameEntry = userName.text, !userNameEntry.isEmpty else {return}
         guard let itemNameEntry = itemName.text, !itemNameEntry.isEmpty else {return}
         guard let priceDayEntry = priceDay.text, !priceDayEntry.isEmpty else {return}
         guard let itemConditionEntry = itemCondition.text, !itemConditionEntry.isEmpty else {return}
@@ -78,10 +80,10 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
                 self.uploadImageToStorage(itemSlug: itemImgSlug, itemImage: self.imageView)
                 // alert user of successful post
                 
+                // reset fields
                 self.itemName.text = ""
                 self.priceDay.text = ""
                 self.itemCondition.text = ""
-                
                 self.imageView.image = UIImage(named: "blank_camera")
                 
                 // go to the home view controller if the post is sucessful
@@ -110,19 +112,14 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround() 
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // Sets default layout when view is loaded
         self.imageView.image = UIImage(named: "blank_camera")
         self.imageView.layer.borderColor = UIColor.gray.cgColor
         self.imageView.layer.borderWidth = 1.5
-        //docRef = Firestore.firestore().document("items/itemEntry");
-       
-        /*
-        imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = self
-        imagePickerController.sourceType = .camera
-        present(imagePickerController, animated: true, completion: nil)
-        */
+        
+        // Get initial data from logged in user
         let userProfileRef = Firestore.firestore().document("users/\(user!.uid)");
-        //print(userProfileRef)
         userProfileRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 let userProfile = document.data()

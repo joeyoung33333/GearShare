@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
-//import FirebaseUI
 import SDWebImage
 
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -20,7 +19,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var myButton: UIButton!
     @IBOutlet weak var myDuration: UITextField!
     
-    // test cases
     var products = [String]()
     var prices = [String]()
     var condition = [String]()

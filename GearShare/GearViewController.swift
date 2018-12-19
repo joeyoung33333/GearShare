@@ -89,6 +89,9 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let Storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = Storyboard.instantiateViewController(withIdentifier: "DetailGearViewController") as! DetailGearViewController
         vc.getImage = UIImage(named: gearItems[indexPath.row])!
+        
+        
+        
         vc.getPrice = gearPrices[indexPath.row]
         vc.getName = gearItems[indexPath.row]
         vc.getCondition = gearCondition[indexPath.row]
