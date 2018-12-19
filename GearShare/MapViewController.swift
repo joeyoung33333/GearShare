@@ -127,31 +127,33 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
             let current = view.annotation!.title!!
-            let Storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = Storyboard.instantiateViewController(withIdentifier: "AvaliableProducts") as! TableViewController
-            
-            db.collection("items").whereField("address", isEqualTo: current).getDocuments() { (querySnapshot, err) in
-                print("All Documents")
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    for document in querySnapshot!.documents {
-                        let docData = document.data()
-                        let itemName = docData["item_name"] as! String
-                        vc.products.append(itemName)
-                        print(itemName)
-                        let priceStr = docData["price_per_day"] as! String
-                        print(priceStr)
-                        vc.prices.append("$" + priceStr)
-                        let conditionStr = docData["item_condition"] as! String
-                        print(conditionStr)
-                        vc.condition.append(conditionStr)
-                        let uid = docData["owner_UID"] as! String
-                        let documentName = "\(String(describing: uid))-\(String(describing: itemName))"
-                        vc.documents.append(documentName)
-                        print(documentName)
+            if current != address {
+                let Storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = Storyboard.instantiateViewController(withIdentifier: "AvaliableProducts") as! TableViewController
+                
+                db.collection("items").whereField("address", isEqualTo: current).getDocuments() { (querySnapshot, err) in
+                    print("All Documents")
+                    if let err = err {
+                        print("Error getting documents: \(err)")
+                    } else {
+                        for document in querySnapshot!.documents {
+                            let docData = document.data()
+                            let itemName = docData["item_name"] as! String
+                            vc.products.append(itemName)
+                            print(itemName)
+                            let priceStr = docData["price_per_day"] as! String
+                            print(priceStr)
+                            vc.prices.append("$" + priceStr)
+                            let conditionStr = docData["item_condition"] as! String
+                            print(conditionStr)
+                            vc.condition.append(conditionStr)
+                            let uid = docData["owner_UID"] as! String
+                            let documentName = "\(String(describing: uid))-\(String(describing: itemName))"
+                            vc.documents.append(documentName)
+                            print(documentName)
+                        }
+                        self.present(vc, animated: true, completion: nil)
                     }
-                    self.present(vc, animated: true, completion: nil)
                 }
             }
             print("map pin clicked")
