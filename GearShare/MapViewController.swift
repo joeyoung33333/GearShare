@@ -130,7 +130,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             if current != address {
                 let Storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc = Storyboard.instantiateViewController(withIdentifier: "AvaliableProducts") as! TableViewController
-                
                 db.collection("items").whereField("address", isEqualTo: current).getDocuments() { (querySnapshot, err) in
                     print("All Documents")
                     if let err = err {

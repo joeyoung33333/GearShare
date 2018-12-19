@@ -103,8 +103,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     */
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func populate() {
         db.collection("items").getDocuments() { (querySnapshot, err) in
             print("All Documents")
             if let err = err {
@@ -128,8 +127,13 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 self.myTable.reloadData()
             }
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         self.myTable.rowHeight = 200
         self.hideKeyboardWhenTappedAround()
+        self.myTable.reloadData()
     }
     
     @IBAction func buttonPress(_ sender: Any) {
