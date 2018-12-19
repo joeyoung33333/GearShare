@@ -11,6 +11,8 @@ import Firebase
 import FirebaseAuth
 import FirebaseFirestore
 
+// Edit Profile - This view controller allows the user to edit their profile data, which will be updated in the database as well as all the product entries belonging the that user will be reflect this change as well
+
 class EditUserViewController: UIViewController {
     // outlet
     @IBOutlet weak var EditUserEmail: UITextField!
@@ -19,7 +21,7 @@ class EditUserViewController: UIViewController {
     
     var profileEntryRef: DocumentReference!
     
-    // action
+    // Function to update user profiles
     @IBAction func EditUserDoneButton(_ sender: Any) {
         if !(self.EditUserName.text == "" || self.EditUserAddress.text == ""){
             let currUser = Auth.auth().currentUser
@@ -78,6 +80,8 @@ class EditUserViewController: UIViewController {
                 }
             }
         } else{
+            // alert user if inputs are invalid
+            
             print("User did not enter an email or address")
             let alertController = UIAlertController(title: "Error!", message: "Please enter a name or address", preferredStyle: .alert)
             
@@ -94,11 +98,12 @@ class EditUserViewController: UIViewController {
         self.hideKeyboardWhenTappedAround() 
         // Do any additional setup after loading the view, typically from a nib.
         let user = Auth.auth().currentUser
+        // Display data with pre-existing information from user
         if let user = user {
             self.EditUserEmail.text = user.email
             self.EditUserName.text = user.displayName
-            //self.EditUserAddress.text = "Nothing Added"
             let userProfileRef = Firestore.firestore().document("users/\(user.uid)");
+            
             //Pull user address from users db
             userProfileRef.getDocument { (document, error) in
                 if let document = document, document.exists {

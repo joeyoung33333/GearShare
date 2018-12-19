@@ -24,6 +24,9 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var gearStatus = [String]()
     var userID: String!
     
+    var productImages: [String: UIImage] = [:]
+
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -41,7 +44,8 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
         // Code for loading image with SDWebImage
         let storageRef = Storage.storage().reference()
-        let reference = storageRef.child("\(userID!)-\(gearItems[indexPath.row]).png")
+        let imageSlug = "\(userID!)-\(gearItems[indexPath.row])"
+        let reference = storageRef.child("\(imageSlug).png")
         reference.downloadURL { url, error in
             if let error = error {
                 print(error)
@@ -52,6 +56,7 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         print (error)
                     } else {
                         //cell.productImage.image?.imageOrientation
+                        self.productImages[imageSlug] = image
                         print ("Image loaded")
                     }
                 })
@@ -88,7 +93,18 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let Storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = Storyboard.instantiateViewController(withIdentifier: "DetailGearViewController") as! DetailGearViewController
-        vc.getImage = UIImage(named: gearItems[indexPath.row])!
+        
+        let imageSlug = "\(userID!)-\(gearItems[indexPath.row])"
+        
+        // Load product image to subview
+        if let pImg = self.productImages[imageSlug] {
+            vc.getImage = pImg
+        } else {
+            vc.getImage = UIImage(named: gearItems[indexPath.row])!
+        }
+        
+        
+        
         vc.getPrice = gearPrices[indexPath.row]
         vc.getName = gearItems[indexPath.row]
         vc.getCondition = gearCondition[indexPath.row]

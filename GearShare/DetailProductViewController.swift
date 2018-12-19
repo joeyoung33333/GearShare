@@ -25,6 +25,11 @@ class DetailProductViewController: UIViewController {
     @IBOutlet weak var detailPricePerDay: UILabel!
     @IBOutlet weak var detailItemCondition: UILabel!
     
+    @IBAction func backToTable(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func Request_Item(_ sender: Any) {
         let docRef = db.collection("items").document(self.getItemID)
         print(getItemID)

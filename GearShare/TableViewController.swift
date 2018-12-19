@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
-//import FirebaseUI
 import SDWebImage
 
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -20,11 +19,12 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var myButton: UIButton!
     @IBOutlet weak var myDuration: UITextField!
     
-    // test cases
     var products = [String]()
     var prices = [String]()
     var condition = [String]()
     var documents = [String]()
+    
+    var productImages: [String: UIImage] = [:]
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -46,11 +46,13 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             if let error = error {
                 print(error)
                 cell.myImage.image = UIImage(named: self.products[indexPath.row])
+                
             } else {
                 cell.myImage.sd_setImage(with: url, placeholderImage: placeholderImage, completed: { (image, error, type, url) in
                     if let error=error {
                         print (error)
                     } else {
+                        self.productImages[self.documents[indexPath.row]] = image
                         print ("Image loaded")
                     }
                 })
@@ -71,7 +73,13 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         let Storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = Storyboard.instantiateViewController(withIdentifier: "DetailProductViewController") as! DetailProductViewController
-        vc.getImage = UIImage(named: products[indexPath.row])!
+        
+        // Load product image to subview
+        if let pImg = self.productImages[self.documents[indexPath.row]] {
+            vc.getImage = pImg
+        } else {
+            vc.getImage = UIImage(named: products[indexPath.row])!
+        }
         vc.getPrice = prices[indexPath.row]
         vc.getName = products[indexPath.row]
         vc.getCondition = condition[indexPath.row]
@@ -79,6 +87,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.present(vc, animated: true, completion: nil)
         
     }
+    
     
     /*
     //Function to load image from storage
@@ -131,11 +140,17 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     
+    @IBAction func backToMap(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.myTable.rowHeight = 200
         self.hideKeyboardWhenTappedAround()
         self.myTable.reloadData()
+        //self.productImages
     }
     
     @IBAction func buttonPress(_ sender: Any) {
