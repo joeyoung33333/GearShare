@@ -11,7 +11,6 @@ import UIKit
 class TableViewCell: UITableViewCell {
     @IBOutlet weak var myImage: UIImageView!
     @IBOutlet weak var myLabel: UILabel!
-    @IBOutlet weak var mySwitch: UISwitch!
     @IBOutlet weak var myPrice: UILabel!
     
     override func awakeFromNib() {
