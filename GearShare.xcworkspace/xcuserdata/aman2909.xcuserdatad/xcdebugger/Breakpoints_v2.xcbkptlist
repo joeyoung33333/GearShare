@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GearShare/PostViewController.swift"
-            timestampString = "566781860.936455"
+            timestampString = "566938970.937167"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "uploadImageToStorage(itemSlug:itemImage:)"
             landmarkType = "7">
          </BreakpointContent>
