@@ -16,6 +16,7 @@ import SDWebImage
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var db = Firestore.firestore()
+    // set up the outlets for the view controller
     @IBOutlet weak var myHeadLabel: UILabel!
     @IBOutlet weak var myTable: UITableView!
     @IBOutlet weak var myButton: UIButton!
@@ -26,6 +27,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var condition = [String]()
     var documents = [String]()
     
+    // hold the images for the products
     var productImages: [String: UIImage] = [:]
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -38,7 +40,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-        //cell.myImage.image = UIImage(named: products[indexPath.row])
+        // cell.myImage.image = UIImage(named: products[indexPath.row])
         
         // Code for loading image with SDWebImage
         let placeholderImage = UIImage(named: products[indexPath.row])
@@ -62,14 +64,14 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
         }
         
-        // Populate cell with product information
+        // populate cell with product information
         cell.myLabel.text = products[indexPath.row]
         cell.myPrice.text = prices[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Row clicked") //Debug
+        print("Row clicked") // debug statement
         
         let Storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = Storyboard.instantiateViewController(withIdentifier: "DetailProductViewController") as! DetailProductViewController
@@ -80,14 +82,13 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         } else {
             vc.getImage = UIImage(named: products[indexPath.row])!
         }
+        // set the variables of the new view being called
         vc.getPrice = prices[indexPath.row]
         vc.getName = products[indexPath.row]
         vc.getCondition = condition[indexPath.row]
         vc.getItemID = documents[indexPath.row]
         self.present(vc, animated: true, completion: nil)
-        
     }
-    
     
     /*
     //Function to load image from storage
@@ -114,21 +115,29 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     */
     
-    // Populate table view with all items from a specific user
+    // used in previous edition of app, not currently being used but still kept in case needed later
     func populate() {
         db.collection("items").getDocuments() { (querySnapshot, err) in
             print("All Documents")
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
+                // populate table view with all items from all users
                 for document in querySnapshot!.documents {
                     let docData = document.data()
+                    // add products
                     let itemName = docData["item_name"] as! String
                     self.products.append(itemName)
+                    
+                    // add corresponding prices
                     let priceStr = docData["price_per_day"] as! String
                     self.prices.append("$" + priceStr)
+                    
+                    // add corresponding conditions
                     let conditionStr = docData["item_condition"] as! String
                     self.condition.append(conditionStr)
+                    
+                    // add corresponding document information
                     let uid = docData["owner_UID"] as! String
                     let documentName = "\(String(describing: uid))-\(String(describing: itemName))"
                     self.documents.append(documentName)
@@ -141,7 +150,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     
-    // Dimiss table and return to map view
+    // dismiss table and return to map view
     @IBAction func backToMap(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
@@ -149,6 +158,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // set qualities of the table
         self.myTable.rowHeight = 200
         self.hideKeyboardWhenTappedAround()
         self.myTable.reloadData()

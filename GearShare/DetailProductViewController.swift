@@ -16,24 +16,26 @@ class DetailProductViewController: UIViewController {
     
     var db = Firestore.firestore()
     
+    // set up the product view variables
     var getName = String()
     var getPrice = String()
     var getCondition = String()
     var getImage = UIImage()
     var getItemID = String()
     
+    // outlets
     @IBOutlet weak var detailImage: UIImageView!
     @IBOutlet weak var detailItemName: UILabel!
     @IBOutlet weak var detailPricePerDay: UILabel!
     @IBOutlet weak var detailItemCondition: UILabel!
     
-    //Dismiss current view controller
+    // dismiss the current view controller
     @IBAction func backToTable(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
     }
     
-    // Function to make request for an item, changes status of item in database and records renter's profile
+    // make request for an item, changes status of item in database, and records renter's profile
     @IBAction func Request_Item(_ sender: Any) {
         let docRef = db.collection("items").document(self.getItemID)
         print(getItemID)
@@ -49,10 +51,11 @@ class DetailProductViewController: UIViewController {
         }
          */
         
+        // get the current user
         let user = Auth.auth().currentUser
         if let user = user {
             let userUID = user.uid
-            
+            // query database for the user's products and their status
             db.collection("items").whereField("owner_UID", isEqualTo: userUID)
                 .getDocuments() { (querySnapshot, error) in
                     if let error = error {
@@ -77,10 +80,10 @@ class DetailProductViewController: UIViewController {
                         }
                         
                     }
-        } else{
+        } else {
             print("Unable to authenticate user")
         }
-        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,7 +96,6 @@ class DetailProductViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
     /*
     // MARK: - Navigation
 

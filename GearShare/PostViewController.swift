@@ -33,8 +33,8 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.sourceType = .camera
+        // allow user to take a picture
         present(imagePickerController, animated: true, completion: nil)
-        
     }
     
     //Sets image view to image taken from device
@@ -42,7 +42,6 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         imagePickerController.dismiss(animated: true, completion: nil)
         imageView.image = info[.originalImage] as? UIImage
         imageView.contentMode = UIView.ContentMode.scaleAspectFit
-        
     }
     
     //Save image to Firebase storage
@@ -64,11 +63,12 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         
     }
     
-    // On-click of post button, save entry to database
+    // on-click of post button, save entry to database
     @IBAction func postItem(_ sender: UIButton) {
         guard let itemNameEntry = itemName.text, !itemNameEntry.isEmpty else {return}
         guard let priceDayEntry = priceDay.text, !priceDayEntry.isEmpty else {return}
         guard let itemConditionEntry = itemCondition.text, !itemConditionEntry.isEmpty else {return}
+        // organize features for the entry into database
         let itemEntry: [String: Any] = ["owner_UID": user!.uid, "item_name": itemNameEntry, "price_per_day": priceDayEntry, "status": "available", "address": self.userAddress, "curr_renter_UID": "", "req_user_UID": "","item_condition": itemConditionEntry]
         let userSlug = "\(user!.uid)-\(itemNameEntry)"
         print("USER SLUG: "+userSlug);
@@ -103,11 +103,12 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
                 
                 let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
                 alertController.addAction(defaultAction)
-                
+                // present error alert
                 self.present(alertController, animated: true, completion: nil)
             }
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround() 
@@ -123,6 +124,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         userProfileRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 let userProfile = document.data()
+                // retrieve user address
                 self.userAddress = userProfile?["address"] as? String ?? ""
                 print("Document data: \(self.userAddress!)")
                 print(self.userAddress)
@@ -131,6 +133,4 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
             }
         }
     }
-    
-    
 }

@@ -11,23 +11,23 @@ import UIKit
 // Approval subview - This view controller allows user to make owners to approve or reject rental requests for their products. Owners could see detail profile information of the user making the request to help inform their decision.
 
 class DetailGearViewController: UIViewController {
+    // set up product variables that will be seen during approval
     var getName = String()
     var getPrice = String()
     var getCondition = String()
     var getImage = UIImage()
     
-    
+    // outlets to show information in a view
     @IBOutlet weak var detailImage: UIImageView!
     @IBOutlet weak var detailName: UILabel!
     @IBOutlet weak var detialPrice: UILabel!
     @IBOutlet weak var detialCondtion: UILabel!
     
-    //Dimiss current view controller
+    // dismiss current view controller
     @IBAction func backToTable(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,6 @@ class DetailGearViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
     /*
     // MARK: - Navigation
 

@@ -28,7 +28,6 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var productImages: [String: UIImage] = [:]
 
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -41,10 +40,10 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
         print("error here1")
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GearCell
         
-        // Code for loading image with SDWebImage
+        // code for loading image with SDWebImage
         let placeholderImage = UIImage(named: gearItems[indexPath.row])
 
-        // Code for loading image with SDWebImage
+        // code for loading image with SDWebImage
         let storageRef = Storage.storage().reference()
         let imageSlug = "\(userID!)-\(gearItems[indexPath.row])"
         let reference = storageRef.child("\(imageSlug).png")
@@ -54,10 +53,10 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 cell.productImage.image = UIImage(named: self.gearItems[indexPath.row])
             } else {
                 cell.productImage.sd_setImage(with: url, placeholderImage: placeholderImage, completed: { (image, error, type, url) in
-                    if let error=error {
+                    if let error = error {
                         print (error)
                     } else {
-                        //cell.productImage.image?.imageOrientation
+                        // cell.productImage.image?.imageOrientation
                         self.productImages[imageSlug] = image
                         print ("Image loaded")
                     }
@@ -66,20 +65,21 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
         }
         
-        //cell.productImage.image = UIImage(named: gearItems[indexPath.row])
+        // cell.productImage.image = UIImage(named: gearItems[indexPath.row])
         cell.productName.text = gearItems[indexPath.row]
         cell.productPrice.text = gearPrices[indexPath.row]
-        if(gearStatus[indexPath.row] == "available"){
+        // set up requests for products
+        if (gearStatus[indexPath.row] == "available") {
             cell.productStatus.text = gearStatus[indexPath.row]
             cell.productStatus.textColor = UIColor.green
             cell.productStatus.shadowColor = UIColor.gray
             cell.productStatus.shadowOffset = CGSize(width: 0.5, height: 0.5)
-        } else if(gearStatus[indexPath.row] == "requested"){
+        } else if (gearStatus[indexPath.row] == "requested") {
             cell.productStatus.text = gearStatus[indexPath.row]
             cell.productStatus.textColor = UIColor.yellow
             cell.productStatus.shadowColor = UIColor.gray
             cell.productStatus.shadowOffset = CGSize(width: 0.5, height: 0.5)
-        } else{
+        } else {
             cell.productStatus.text = gearStatus[indexPath.row]
             cell.productStatus.textColor = UIColor.red
             cell.productStatus.shadowColor = UIColor.gray
@@ -104,16 +104,12 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
         } else {
             vc.getImage = UIImage(named: gearItems[indexPath.row])!
         }
-        
-        
-        
+        // set up next view controller to be shown
         vc.getPrice = gearPrices[indexPath.row]
         vc.getName = gearItems[indexPath.row]
         vc.getCondition = gearCondition[indexPath.row]
         
-        
         self.present(vc, animated: true, completion: nil)
-        
     }
     
     // function to load referenceURL for the item
@@ -145,6 +141,7 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         
                         self.present(alertController, animated: true, completion: nil)
                     } else {
+                        // add correct gear into the table based on the current user
                         for document in querySnapshot!.documents {
                             let docData = document.data()
                             self.gearItems.append(docData["item_name"] as! String)
@@ -156,16 +153,14 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
                             self.gearStatus.append(statusStr)
                             print("\(document.documentID) => \(document.data())")
                         }
+                        // input the data into the table
                         self.gearTable.reloadData()
                         print("GearViewController")
                         print(self.gearItems)
-                        
                     }
                 }
             } else {
                 print("Unable to validate user and query their gear")
                 }
             }
-    
-
 }

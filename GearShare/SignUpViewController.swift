@@ -18,8 +18,7 @@ class SignUpViewController: UIViewController {
     
     var docRef: DocumentReference!
     
-    // actions
-    // Sign Up: method allows user to create an account with their email and password
+    // Sign Up action: method allows user to create an account with their email and password
     @IBAction func SignUpButton(_ sender: Any) {
         if SignUpEmail.text == "" {
             // alert user of error that nothing has been entered
@@ -75,16 +74,11 @@ class SignUpViewController: UIViewController {
             }
         }
     }
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
-        
-        // FIX: Add dismis keyboard
 
     }
-
 }
