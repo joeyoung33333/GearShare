@@ -88,6 +88,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
     }
     
+    
     /*
     //Function to load image from storage
     func loadImageForItem(itemSlug: String) -> String {

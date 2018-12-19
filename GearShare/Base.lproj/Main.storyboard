@@ -597,7 +597,7 @@
                                 </constraints>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQP-hA-TKA" customClass="RoundedButton" customModule="GearShare" customModuleProvider="target">
-                                <rect key="frame" x="334" y="782" width="60" height="60"/>
+                                <rect key="frame" x="334" y="733" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.018275538460000001" green="0.59056967500000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="Pd8-Zh-8Ca"/>
@@ -734,7 +734,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="4tS-aP-Z6l" kind="show" id="XNj-va-azD"/>
+                                    <action selector="backToTable:" destination="l3F-Hg-cIT" eventType="touchUpInside" id="E2T-cC-xFW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1593,9 +1593,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4pw-1e-uId"/>
-        <segue reference="dGe-9z-mnW"/>
+        <segue reference="U8q-3J-QGY"/>
         <segue reference="a8x-l8-9wQ"/>
         <segue reference="KnU-di-N2f"/>
-        <segue reference="1dV-uU-KlO"/>
+        <segue reference="cj5-hq-VY1"/>
     </inferredMetricsTieBreakers>
 </document>
