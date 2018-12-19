@@ -140,6 +140,11 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     
+    @IBAction func backToMap(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.myTable.rowHeight = 200

@@ -20,6 +20,12 @@ class DetailGearViewController: UIViewController {
     @IBOutlet weak var detialPrice: UILabel!
     @IBOutlet weak var detialCondtion: UILabel!
     
+    @IBAction func backToTable(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
