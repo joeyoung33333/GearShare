@@ -20,6 +20,6 @@ class RoundedButton: UIButton{
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = frame.height/2
-        layer.borderColor = isEnabled ? tintColor.cgColor: UIColor.lightGray.cgColor
+        layer.borderColor = UIColor(red: 74/225.0, green: 182/255.0, blue: 213/255.0, alpha: 1.0).cgColor
     }
 }
