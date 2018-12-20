@@ -54,7 +54,8 @@ class EditUserViewController: UIViewController {
                                 let userUID = user.uid
                                 self.userID = user.uid
                                 // find the current user in the db
-                                self.db.collection("items").whereField("ownerID", isEqualTo: userUID)
+                                
+                                self.db.collection("items").whereField("owner_UID", isEqualTo: userUID)
                                     .getDocuments() { (querySnapshot, error) in
                                         if let error = error {
                                             // error trapping for not being able to get documents
@@ -67,8 +68,9 @@ class EditUserViewController: UIViewController {
                                             self.present(alertController, animated: true, completion: nil)
                                         } else {
                                             for document in querySnapshot!.documents {
-                                                let docData = document.data()
-                                                
+                                                var docData = document.data()
+                                                let docRef = self.db.collection("items").document(docData["item_name"] as! String)
+                                                docRef.updateData(["address": self.EditUserAddress.text!])
                                             }
                                         }
                                 }
