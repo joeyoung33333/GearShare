@@ -13,14 +13,15 @@ import UIKit
 class DetailGearViewController: UIViewController {
     var getName = String()
     var getPrice = String()
-    var getCondition = String()
+    var getDate = String()
     var getImage = UIImage()
     
     
     @IBOutlet weak var detailImage: UIImageView!
     @IBOutlet weak var detailName: UILabel!
-    @IBOutlet weak var detialPrice: UILabel!
-    @IBOutlet weak var detialCondtion: UILabel!
+    @IBOutlet weak var detailPrice: UILabel!
+    @IBOutlet weak var detailStartDate: UILabel!
+    @IBOutlet weak var detailEndDate: UILabel!
     
     //Dimiss current view controller
     @IBAction func backToTable(_ sender: Any) {
@@ -34,8 +35,14 @@ class DetailGearViewController: UIViewController {
         
         detailImage.image = getImage
         detailName.text = getName
-        detialPrice.text = getPrice
-        detialCondtion.text = getCondition
+        //detailPrice.text = getPrice
+        
+        let splitedRentalDates = getDate.split(separator: "/")
+        
+        detailStartDate.text = String(splitedRentalDates[0]) as String
+        detailEndDate.text = String(splitedRentalDates[1]) as String
+        
+        
 
         // Do any additional setup after loading the view.
     }

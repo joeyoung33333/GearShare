@@ -12,7 +12,7 @@ import FirebaseAuth
 import FirebaseFirestore
 import FirebaseUI
 
-// Gear view - This view controller allows product owners to review requests for rentals, uesrs can either approve or reject requests with renter's information provided to assist judgment
+// Gear view - This view controller allows product owners to review requests for rentals, uesrs can either approve or reject requests with renter's information provided 
 
 class GearViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -22,7 +22,7 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // test cases
     var gearItems = [String]()
     var gearPrices = [String]()
-    var gearCondition = [String]()
+    var gearRentalPeriod = [String]()
     var gearStatus = [String]()
     var userID: String!
     
@@ -109,7 +109,7 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         vc.getPrice = gearPrices[indexPath.row]
         vc.getName = gearItems[indexPath.row]
-        vc.getCondition = gearCondition[indexPath.row]
+        vc.getDate = gearRentalPeriod[indexPath.row]
         
         
         self.present(vc, animated: true, completion: nil)
@@ -150,8 +150,10 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
                             self.gearItems.append(docData["item_name"] as! String)
                             let priceStr = docData["price_per_day"] as! String
                             self.gearPrices.append("$" + priceStr)
-                             let conditionStr = docData["item_condition"] as! String
-                            self.gearCondition.append(conditionStr)
+                            //let conditionStr = docData["item_condition"] as! String
+                            let reqStartDate = docData["req_pick_up_date"] as! String
+                            let reqEndDate = docData["req_return_date"] as! String
+                            self.gearRentalPeriod.append("\(reqStartDate)/\(reqEndDate)")
                             let statusStr = docData["status"] as! String
                             self.gearStatus.append(statusStr)
                             print("\(document.documentID) => \(document.data())")

@@ -27,6 +27,11 @@ class DetailProductViewController: UIViewController {
     @IBOutlet weak var detailPricePerDay: UILabel!
     @IBOutlet weak var detailItemCondition: UILabel!
     
+    //Datepicker
+    @IBOutlet weak var pickUpDate: UIDatePicker!
+    
+    @IBOutlet weak var returnDate: UIDatePicker!
+    
     //Dismiss current view controller
     @IBAction func backToTable(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -45,9 +50,15 @@ class DetailProductViewController: UIViewController {
                 print("Document data: \(dataDescription)")
             } else {
                 print("Document does not exist. Unable to request")
-            }
-        }
+3        }
          */
+        
+        //Format input from date formatter
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+        let pickUpDate = dateFormatter.string(from: self.pickUpDate.date)
+        let returnDate = dateFormatter.string(from: self.returnDate.date)
+        print("Pick up: \(pickUpDate) - Return: \(returnDate)")
         
         let user = Auth.auth().currentUser
         if let user = user {
@@ -66,7 +77,9 @@ class DetailProductViewController: UIViewController {
                     } else {
                         docRef.updateData([
                             "status": "requested",
-                            "req_user_UID": userUID
+                            "req_user_UID": userUID,
+                            "req_pick_up_date": pickUpDate,
+                            "req_return_date": returnDate
                         ]) { err in
                             if let err = err {
                                 print("Error in updating entry \(err)")

@@ -12,18 +12,24 @@ import FirebaseFirestore
 
 // Post - View Controller to allow users to post item listings to the database, including information regarding item name, price per day, item condition and current photo of items
 
-class PostViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class PostViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+    
     // User item information inputs
     @IBOutlet weak var itemName: UITextField!
     @IBOutlet weak var priceDay: UITextField!
-    @IBOutlet weak var itemCondition: UITextField!
+    //@IBOutlet weak var itemCondition: UITextField!
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var itemConditionPicker: UIPickerView!
+
     var docRef: DocumentReference!
     
     //Retrieve information from current user's user profile from usersdb
     var user = Auth.auth().currentUser
     var userAddress: String!
+    
+    //Array for item condition values
+    var itemConditionValueSelector: [String] = [String]()
     
     //Holds image from camera
     var imagePickerController: UIImagePickerController!
@@ -43,6 +49,19 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         imageView.image = info[.originalImage] as? UIImage
         imageView.contentMode = UIView.ContentMode.scaleAspectFit
         
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        //print(itemConditionValueSelector.count)
+        return itemConditionValueSelector.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return itemConditionValueSelector[row]
     }
     
     //Save image to Firebase storage
@@ -68,8 +87,8 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
     @IBAction func postItem(_ sender: UIButton) {
         guard let itemNameEntry = itemName.text, !itemNameEntry.isEmpty else {return}
         guard let priceDayEntry = priceDay.text, !priceDayEntry.isEmpty else {return}
-        guard let itemConditionEntry = itemCondition.text, !itemConditionEntry.isEmpty else {return}
-        let itemEntry: [String: Any] = ["owner_UID": user!.uid, "item_name": itemNameEntry, "price_per_day": priceDayEntry, "status": "available", "address": self.userAddress, "curr_renter_UID": "", "req_user_UID": "","item_condition": itemConditionEntry]
+        //guard let itemConditionEntry = itemCondition.text, !itemConditionEntry.isEmpty else {return}
+        let itemEntry: [String: Any] = ["owner_UID": user!.uid, "item_name": itemNameEntry, "price_per_day": priceDayEntry, "status": "available", "address": self.userAddress, "curr_renter_UID": "", "req_user_UID": "", "req_pick_up_date": "","req_return_date": "","item_condition": String(itemConditionPicker.selectedRow(inComponent: 0))]
         let userSlug = "\(user!.uid)-\(itemNameEntry)"
         print("USER SLUG: "+userSlug);
         docRef = Firestore.firestore().document("items/\(userSlug)")
@@ -83,7 +102,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
                 // reset fields
                 self.itemName.text = ""
                 self.priceDay.text = ""
-                self.itemCondition.text = ""
+                //self.itemCondition.text = ""
                 self.imageView.image = UIImage(named: "blank_camera")
                 
                 // go to the home view controller if the post is sucessful
@@ -118,6 +137,11 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         self.imageView.layer.borderColor = UIColor.gray.cgColor
         self.imageView.layer.borderWidth = 1.5
         
+        // Connect data:
+        self.itemConditionPicker.delegate = self
+        self.itemConditionPicker.dataSource = self
+        itemConditionValueSelector = ["1","2","3","4","5","6","7","8","9","10"]
+        
         // Get initial data from logged in user
         let userProfileRef = Firestore.firestore().document("users/\(user!.uid)");
         userProfileRef.getDocument { (document, error) in
@@ -131,6 +155,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
             }
         }
     }
+    
     
     
 }
