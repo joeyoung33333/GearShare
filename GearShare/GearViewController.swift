@@ -16,6 +16,7 @@ import FirebaseUI
 
 class GearViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var segmentBar: UISegmentedControl!
     @IBOutlet weak var gearTable: UITableView!
     var db = Firestore.firestore()
     
@@ -133,6 +134,10 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if let user = user {
             let userUID = user.uid
             userID = user.uid
+            var query = ""
+            if (self.segmentBar.selectedSegmentIndex==0) {
+                query = "owner_UID"
+            }
             db.collection("items").whereField("owner_UID", isEqualTo: userUID)
                 .getDocuments() { (querySnapshot, error) in
                     if let error = error {

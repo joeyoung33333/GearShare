@@ -17,6 +17,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     var db = Firestore.firestore()
     // set up the outlets for the view controller
+    
     @IBOutlet weak var myHeadLabel: UILabel!
     @IBOutlet weak var myTable: UITableView!
     @IBOutlet weak var myButton: UIButton!

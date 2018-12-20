@@ -109,6 +109,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                                         let ann = MKPointAnnotation()
                                         // split the address for the map annotation
                                         var fullLocationArr = location.split{$0 == ","}.map(String.init)
+                                        print(fullLocationArr)
                                         // the title will be the number and street address
                                         ann.title = fullLocationArr[0]
                                         // halfAdd is the second half of the address which will be the subtitle
