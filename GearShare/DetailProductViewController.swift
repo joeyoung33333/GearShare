@@ -28,17 +28,10 @@ class DetailProductViewController: UIViewController {
     @IBOutlet weak var detailItemName: UILabel!
     @IBOutlet weak var detailPricePerDay: UILabel!
     @IBOutlet weak var detailItemCondition: UILabel!
-    
-<<<<<<< HEAD
-    //Datepicker
     @IBOutlet weak var pickUpDate: UIDatePicker!
     
     @IBOutlet weak var returnDate: UIDatePicker!
     
-    //Dismiss current view controller
-=======
-    // dismiss the current view controller
->>>>>>> 786d4f2e1d3263ea762e293d0803bf651e149858
     @IBAction func backToTable(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
@@ -59,7 +52,6 @@ class DetailProductViewController: UIViewController {
 3        }
          */
         
-<<<<<<< HEAD
         //Format input from date formatter
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
@@ -67,9 +59,7 @@ class DetailProductViewController: UIViewController {
         let returnDate = dateFormatter.string(from: self.returnDate.date)
         print("Pick up: \(pickUpDate) - Return: \(returnDate)")
         
-=======
         // get the current user
->>>>>>> 786d4f2e1d3263ea762e293d0803bf651e149858
         let user = Auth.auth().currentUser
         if let user = user {
             let userUID = user.uid

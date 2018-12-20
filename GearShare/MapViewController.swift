@@ -198,20 +198,20 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             // create a pin view from the original annotations
             let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: String(annotation.hash))
             // set button size
-            let smallRect = CGSize(width: 122, height: 22)
+            let smallRect = CGSize(width: 25, height: 25)
             let rightButton = UIButton(frame: CGRect(origin: .zero, size: smallRect))
             
             // set features of the button on the right
             rightButton.tag = annotation.hash
-            rightButton.backgroundColor = UIColor(hue: 0.55, saturation: 1, brightness: 0.89, alpha: 1.0)
-            rightButton.layer.cornerRadius = 5
+            rightButton.backgroundColor = UIColor(red: 74/225.0, green: 182/255.0, blue: 213/255.0, alpha: 1.0)
+            rightButton.layer.cornerRadius = 25/2
             rightButton.layer.borderWidth = 1
-            rightButton.layer.borderColor = UIColor.black.cgColor
+            rightButton.layer.borderColor = UIColor(red: 74/225.0, green: 182/255.0, blue: 213/255.0, alpha: 1.0).cgColor
             
             // add a label to provide text for the button
-            let label = UILabel(frame: CGRect(x: -40, y: 3, width: 200, height: 15))
+            let label = UILabel(frame: CGRect(x: -40, y: 3, width: 100, height: 15))
             label.textAlignment = .center
-            label.text = "View Products"
+            label.text = " >"
             label.textColor = .white
             
             // add the label to the button
