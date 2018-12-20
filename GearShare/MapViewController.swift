@@ -107,16 +107,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                                     // for each location in the addresses, create a map pin
                                     for location in self.addresses {
                                         let ann = MKPointAnnotation()
+                                        ann.title = location
                                         // split the address for the map annotation
-                                        var fullLocationArr = location.split{$0 == ","}.map(String.init)
-                                        print(fullLocationArr)
+//                                        var fullLocationArr = location.split{$0 == ","}.map(String.init)
                                         // the title will be the number and street address
-                                        ann.title = fullLocationArr[0]
+//                                        ann.title = fullLocationArr[0]
                                         // halfAdd is the second half of the address which will be the subtitle
-                                        let halfAdd = fullLocationArr[1] + "," + fullLocationArr[2]
+//                                        let halfAdd = fullLocationArr[1] + "," + fullLocationArr[2]
                                         // trim the whitespace from the front to clean up formatting
-                                        let trimmedString = halfAdd.trimmingCharacters(in: .whitespacesAndNewlines)
-                                        ann.subtitle = trimmedString
+//                                        let trimmedString = halfAdd.trimmingCharacters(in: .whitespacesAndNewlines)
+//                                        ann.subtitle = trimmedString
                                         // get latitude and longitudes for all other addresses
                                         let geoCoder = CLGeocoder()
                                         geoCoder.geocodeAddressString(location) { (placemarks, error) in
@@ -152,7 +152,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         // if the button pressed is the right callout button then trigger this conditional
         if control == view.rightCalloutAccessoryView {
             // reformat address to align with addresses stored in the database
-            let current = view.annotation!.title!! + ", " + view.annotation!.subtitle!!
+            let current = view.annotation!.title!!
             // if the address isn't the current one
             if current != address {
                 // create a new storyboard based on the tableviewcontroller file
