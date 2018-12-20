@@ -20,8 +20,14 @@ class DetailGearViewController: UIViewController {
     var getPrice = String()
     var getDate = String()
     var getImage = UIImage()
+    var getStatus = String()
     
+    @IBOutlet weak var inputUserRating: UITextField!
+    @IBOutlet weak var denyBtn: RoundedButton!
+    @IBOutlet weak var confirmBtn: RoundedButton!
     // outlets to show information in a view
+    @IBOutlet weak var approveBtn: RoundedButton!
+    
     @IBOutlet weak var detailImage: UIImageView!
     @IBOutlet weak var detailName: UILabel!
     @IBOutlet weak var detailPrice: UILabel!
@@ -89,7 +95,46 @@ class DetailGearViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     }
- 
+    
+    @IBAction func confirmReturn(_ sender: Any) {
+        // get the current user
+        
+        let user = Auth.auth().currentUser
+        if let user = user {
+            let userUID = user.uid
+            let docRef = db.collection("items").document("\(userUID)-\(getName)")
+            // pull user address from users db
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    let product = document.data()
+                    let currRentalUserID = product?["curr_renter_UID"] as? String ?? ""
+                    //let reqPickUpDate = product?["req_pick_up_date"] as? String ?? ""
+                    //let reqReturnDate = product?["req_return_date"] as? String ?? ""
+                    print("Current rental user: \(currRentalUserID)")
+                    
+                    //docRef for user profile
+                    let docRefUser = self.db.collection("users").document("\(currRentalUserID)")
+                    
+                    docRefUser.updateData([
+                        "rating": self.inputUserRating.text ?? String()
+                    ]) { error in
+                        if let error = error {
+                            print("Error in updating entry \(error)")
+                            let alertController = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .alert)
+                            
+                            let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                            alertController.addAction(defaultAction)
+                            
+                            self.present(alertController, animated: true, completion: nil)
+                        }
+                        
+                    }
+            }
+        }
+        }
+        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,6 +150,18 @@ class DetailGearViewController: UIViewController {
         } else{
             detailStartDate.text = ""
             detailEndDate.text = ""
+        }
+        
+        if (getStatus=="approved") {
+            self.confirmBtn.isHidden = false
+            self.denyBtn.isHidden = true
+            self.approveBtn.isHidden = true
+            self.inputUserRating.isHidden = false
+        } else {
+            self.confirmBtn.isHidden = true
+            self.denyBtn.isHidden = false
+            self.approveBtn.isHidden = false
+            self.inputUserRating.isHidden = false
         }
         
         

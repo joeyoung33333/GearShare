@@ -116,6 +116,7 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         // set up next view controller to be shown
         vc.getPrice = gearPrices[indexPath.row]
+        vc.getStatus = gearStatus[indexPath.row]
         vc.getName = gearItems[indexPath.row]
         vc.getDate = gearRentalPeriod[indexPath.row]
         
