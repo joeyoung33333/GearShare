@@ -70,7 +70,28 @@ class EditUserViewController: UIViewController {
                                             for document in querySnapshot!.documents {
                                                 var docData = document.data()
                                                 let docRef = self.db.collection("items").document(docData["item_name"] as! String)
-                                                docRef.updateData(["address": self.EditUserAddress.text!])
+                                                docRef.updateData([
+                                                    "address": self.EditUserAddress.text!
+                                                ]) { error in
+                                                    if let error = error {
+                                                        print("Error in updating entry \(error)")
+                                                        let alertController = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .alert)
+                                                        
+                                                        let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                                                        alertController.addAction(defaultAction)
+                                                        
+                                                        self.present(alertController, animated: true, completion: nil)
+                                                    } else {
+                                                        print("Update item status successful")
+                                                        let alertController = UIAlertController(title: "Success!", message: "You Requested an Item", preferredStyle: .alert)
+                                                        
+                                                        let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                                                        alertController.addAction(defaultAction)
+                                                        
+                                                        self.present(alertController, animated: true, completion: nil)
+                                                    }
+                                                }
+                                                
                                             }
                                         }
                                 }
