@@ -63,37 +63,36 @@ class DetailProductViewController: UIViewController {
         let user = Auth.auth().currentUser
         if let user = user {
             let userUID = user.uid
-            // query database for the user's products and their status
-            db.collection("items").whereField("owner_UID", isEqualTo: userUID)
-                .getDocuments() { (querySnapshot, error) in
-                    if let error = error {
-                        print("Unable to get current user to request")
-                        let alertController = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .alert)
-                        
-                        let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-                        alertController.addAction(defaultAction)
-                        
-                        self.present(alertController, animated: true, completion: nil)
-                    } else {
-                        docRef.updateData([
-                            "status": "requested",
-                            "req_user_UID": userUID,
-                            "req_pick_up_date": pickUpDate,
-                            "req_return_date": returnDate
-                        ]) { err in
-                            if let err = err {
-                                print("Error in updating entry \(err)")
-                            } else {
-                                print("Update item status successful");
-                            }
-                        }
-                        }
-                        
-                    }
+            docRef.updateData([
+                "status": "requested",
+                "req_user_UID": userUID,
+                "req_pick_up_date": pickUpDate,
+                "req_return_date": returnDate
+            ]) { error in
+                if let error = error {
+                    print("Error in updating entry \(error)")
+                    let alertController = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .alert)
+                    
+                    let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                    alertController.addAction(defaultAction)
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                } else {
+                    print("Update item status successful")
+                    let alertController = UIAlertController(title: "Success!", message: "You Requested an Item", preferredStyle: .alert)
+                    
+                    let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                    alertController.addAction(defaultAction)
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            }
         } else {
             print("Unable to authenticate user")
         }
     }
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
