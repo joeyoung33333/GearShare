@@ -19,6 +19,8 @@ class EditUserViewController: UIViewController {
     @IBOutlet weak var EditUserName: UITextField!
     @IBOutlet weak var EditUserAddress: UITextField!
     
+    var db = Firestore.firestore()
+    var userID: String!
     var profileEntryRef: DocumentReference!
     
     // update user profiles
@@ -34,7 +36,7 @@ class EditUserViewController: UIViewController {
                     Auth.auth().currentUser?.updateEmail(to: String(self.EditUserEmail.text!)) { (error) in
                         if error == nil {
                             // update user profile entry
-                            self.profileEntryRef = Firestore.firestore().document("users/\(currUser!.uid)");
+                            self.profileEntryRef = Firestore.firestore().document("users/\(currUser!.uid)")
                             print(self.profileEntryRef)
                             print("Address \(self.EditUserAddress.text!)")
                             self.profileEntryRef.updateData([
@@ -45,6 +47,30 @@ class EditUserViewController: UIViewController {
                                     print("Error in updating entry \(err)")
                                 } else {
                                     print("Update successful");
+                                }
+                            }
+                            let user = Auth.auth().currentUser
+                            if let user = user {
+                                let userUID = user.uid
+                                self.userID = user.uid
+                                // find the current user in the db
+                                self.db.collection("items").whereField("ownerID", isEqualTo: userUID)
+                                    .getDocuments() { (querySnapshot, error) in
+                                        if let error = error {
+                                            // error trapping for not being able to get documents
+                                            print("Error getting documents from authenticated user: \(error)")
+                                            let alertController = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .alert)
+                                            // alert for the error
+                                            let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                                            alertController.addAction(defaultAction)
+                                            // present the alert controller if there's an error
+                                            self.present(alertController, animated: true, completion: nil)
+                                        } else {
+                                            for document in querySnapshot!.documents {
+                                                let docData = document.data()
+                                                
+                                            }
+                                        }
                                 }
                             }
                             
