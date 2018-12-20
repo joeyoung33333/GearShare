@@ -37,7 +37,6 @@
 		7CE3ADEE219CBD5000861698 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CE3ADEC219CBD5000861698 /* Main.storyboard */; };
 		7CE3ADF0219CBD5200861698 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CE3ADEF219CBD5200861698 /* Assets.xcassets */; };
 		7CE3ADF3219CBD5200861698 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CE3ADF1219CBD5200861698 /* LaunchScreen.storyboard */; };
-		7CE3ADFE219CBD5200861698 /* GearShareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3ADFD219CBD5200861698 /* GearShareTests.swift */; };
 		7CE3AE09219CBD5200861698 /* GearShareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3AE08219CBD5200861698 /* GearShareUITests.swift */; };
 		8C0552A721B333DB00BF422B /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0552A621B333DB00BF422B /* PostViewController.swift */; };
 		8C71CDC321B84AFC00D70B0F /* iOS_inApp_icons in Resources */ = {isa = PBXBuildFile; fileRef = 8C71CDC221B84AFC00D70B0F /* iOS_inApp_icons */; };
@@ -99,14 +98,14 @@
 		7CE3ADF2219CBD5200861698 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CE3ADF4219CBD5200861698 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CE3ADF9219CBD5200861698 /* GearShareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GearShareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7CE3ADFD219CBD5200861698 /* GearShareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearShareTests.swift; sourceTree = "<group>"; };
-		7CE3ADFF219CBD5200861698 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CE3AE04219CBD5200861698 /* GearShareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GearShareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CE3AE08219CBD5200861698 /* GearShareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearShareUITests.swift; sourceTree = "<group>"; };
 		7CE3AE0A219CBD5200861698 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C0552A621B333DB00BF422B /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		8C71CDC221B84AFC00D70B0F /* iOS_inApp_icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = iOS_inApp_icons; sourceTree = SOURCE_ROOT; };
 		8C843B4E21B4B86A00CDCE6C /* gearShare_iOS_icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = gearShare_iOS_icons; sourceTree = SOURCE_ROOT; };
+		8CF0D41221CB40E200E878EA /* GearShareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearShareTests.swift; sourceTree = "<group>"; };
+		8CF0D41321CB40E200E878EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9FA8BFAB8984904199839182 /* Pods-GearShareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GearShareTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GearShareTests/Pods-GearShareTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A09828226E0F863F64A8F1EA /* Pods-GearShareUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GearShareUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GearShareUITests/Pods-GearShareUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A2FCF12C1879601D5C9C263D /* Pods-GearShareUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GearShareUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GearShareUITests/Pods-GearShareUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -173,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				7CE3ADE7219CBD5000861698 /* GearShare */,
-				7CE3ADFC219CBD5200861698 /* GearShareTests */,
 				7CE3AE07219CBD5200861698 /* GearShareUITests */,
 				7CE3ADE6219CBD5000861698 /* Products */,
 				82F21454FCD7D1BE606FE117 /* Pods */,
@@ -215,21 +213,13 @@
 				7CE3ADF1219CBD5200861698 /* LaunchScreen.storyboard */,
 				7C35D4C521B34CBA000F9EB4 /* CityViewController.xib */,
 				7CE3ADEF219CBD5200861698 /* Assets.xcassets */,
+				8CF0D41121CB40E200E878EA /* GearShareTests */,
 				8C843B4E21B4B86A00CDCE6C /* gearShare_iOS_icons */,
 				7CA4777A21B4E7D100627BB9 /* Icons */,
 				7C3E433121B342D500161FEC /* GoogleService-Info.plist */,
 				7CE3ADF4219CBD5200861698 /* Info.plist */,
 			);
 			path = GearShare;
-			sourceTree = "<group>";
-		};
-		7CE3ADFC219CBD5200861698 /* GearShareTests */ = {
-			isa = PBXGroup;
-			children = (
-				7CE3ADFD219CBD5200861698 /* GearShareTests.swift */,
-				7CE3ADFF219CBD5200861698 /* Info.plist */,
-			);
-			path = GearShareTests;
 			sourceTree = "<group>";
 		};
 		7CE3AE07219CBD5200861698 /* GearShareUITests */ = {
@@ -252,6 +242,15 @@
 				A09828226E0F863F64A8F1EA /* Pods-GearShareUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8CF0D41121CB40E200E878EA /* GearShareTests */ = {
+			isa = PBXGroup;
+			children = (
+				8CF0D41221CB40E200E878EA /* GearShareTests.swift */,
+				8CF0D41321CB40E200E878EA /* Info.plist */,
+			);
+			path = GearShareTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -557,7 +556,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CE3ADFE219CBD5200861698 /* GearShareTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
