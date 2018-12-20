@@ -15,8 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var LoginEmail: UITextField!
     @IBOutlet weak var LoginPassword: UITextField!
     
-    // actions
-    // Login: method allows user to submit request to login
+    // Login action: method allows user to submit request to login
     @IBAction func LoginButton(_ sender: Any) {
         if self.LoginEmail.text == "" || self.LoginPassword.text == "" {
             // checks for empty text fields and alerts of an error
@@ -57,11 +56,9 @@ class LoginViewController: UIViewController {
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround() 
         // Do any additional setup after loading the view.
     }
-
 }

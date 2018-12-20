@@ -8,13 +8,17 @@
 
 import UIKit
 
+// set up extension to remove keyboard
 extension UIViewController {
+    // all files calling this in the file will enable this feature
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
+        // enable tapping to exit the keyboard
         view.addGestureRecognizer(tap)
     }
     
+    // actually dismisses the keyboard
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }

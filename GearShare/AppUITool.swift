@@ -9,17 +9,19 @@
 import Foundation
 import UIKit
 
-
-class RoundedButton: UIButton{
+// create class for a rounded button component
+class RoundedButton: UIButton {
     override func awakeFromNib() {
         super.awakeFromNib()
-        layer.borderWidth = 1/UIScreen.main.nativeScale
+        layer.borderWidth = 1 / UIScreen.main.nativeScale
         contentEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         titleLabel?.adjustsFontForContentSizeCategory = true
     }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
-        layer.cornerRadius = frame.height/2
+        // make the radius of the button rounded
+        layer.cornerRadius = frame.height / 2
         layer.borderColor = UIColor(red: 74/225.0, green: 182/255.0, blue: 213/255.0, alpha: 1.0).cgColor
     }
 }

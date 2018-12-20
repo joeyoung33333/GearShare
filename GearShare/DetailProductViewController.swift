@@ -16,29 +16,35 @@ class DetailProductViewController: UIViewController {
     
     var db = Firestore.firestore()
     
+    // set up the product view variables
     var getName = String()
     var getPrice = String()
     var getCondition = String()
     var getImage = UIImage()
     var getItemID = String()
     
+    // outlets
     @IBOutlet weak var detailImage: UIImageView!
     @IBOutlet weak var detailItemName: UILabel!
     @IBOutlet weak var detailPricePerDay: UILabel!
     @IBOutlet weak var detailItemCondition: UILabel!
     
+<<<<<<< HEAD
     //Datepicker
     @IBOutlet weak var pickUpDate: UIDatePicker!
     
     @IBOutlet weak var returnDate: UIDatePicker!
     
     //Dismiss current view controller
+=======
+    // dismiss the current view controller
+>>>>>>> 786d4f2e1d3263ea762e293d0803bf651e149858
     @IBAction func backToTable(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
     }
     
-    // Function to make request for an item, changes status of item in database and records renter's profile
+    // make request for an item, changes status of item in database, and records renter's profile
     @IBAction func Request_Item(_ sender: Any) {
         let docRef = db.collection("items").document(self.getItemID)
         print(getItemID)
@@ -53,6 +59,7 @@ class DetailProductViewController: UIViewController {
 3        }
          */
         
+<<<<<<< HEAD
         //Format input from date formatter
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
@@ -60,10 +67,13 @@ class DetailProductViewController: UIViewController {
         let returnDate = dateFormatter.string(from: self.returnDate.date)
         print("Pick up: \(pickUpDate) - Return: \(returnDate)")
         
+=======
+        // get the current user
+>>>>>>> 786d4f2e1d3263ea762e293d0803bf651e149858
         let user = Auth.auth().currentUser
         if let user = user {
             let userUID = user.uid
-            
+            // query database for the user's products and their status
             db.collection("items").whereField("owner_UID", isEqualTo: userUID)
                 .getDocuments() { (querySnapshot, error) in
                     if let error = error {
@@ -90,10 +100,10 @@ class DetailProductViewController: UIViewController {
                         }
                         
                     }
-        } else{
+        } else {
             print("Unable to authenticate user")
         }
-        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,7 +116,6 @@ class DetailProductViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
     /*
     // MARK: - Navigation
 

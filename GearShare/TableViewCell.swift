@@ -9,6 +9,7 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
+    // outlets for each cell
     @IBOutlet weak var myImage: UIImageView!
     @IBOutlet weak var myLabel: UILabel!
     @IBOutlet weak var myPrice: UILabel!

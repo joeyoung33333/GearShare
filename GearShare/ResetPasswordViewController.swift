@@ -14,8 +14,7 @@ class ResetPasswordViewController: UIViewController {
     // outlets
     @IBOutlet weak var ResetPasswordEmail: UITextField!
     
-    //actions
-    // Reset Password: method will reset password by sending email to user
+    // Reset Password action: method will reset password by sending email to user
     @IBAction func ResetPasswordButton(_ sender: Any) {
         if self.ResetPasswordEmail.text == "" {
             // alert user that they must enter an email address
@@ -28,7 +27,7 @@ class ResetPasswordViewController: UIViewController {
             
         } else {
             Auth.auth().sendPasswordReset(withEmail: self.ResetPasswordEmail.text!, completion: { (error) in
-                
+                // title represents success of the reset and message corresponds to the title
                 var title = ""
                 var message = ""
                 
@@ -58,5 +57,4 @@ class ResetPasswordViewController: UIViewController {
         self.hideKeyboardWhenTappedAround() 
         // Do any additional setup after loading the view.
     }
-
 }

@@ -11,12 +11,11 @@ import Firebase
 import FirebaseAuth
 
 class GearCell: UITableViewCell {
-    
+    // outlets for each cell of table in GearViewController
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var productStatus: UILabel!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,5 +27,4 @@ class GearCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
-
 }

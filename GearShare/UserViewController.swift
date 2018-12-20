@@ -17,8 +17,7 @@ class UserViewController: UIViewController {
     @IBOutlet weak var UserProfileName: UILabel!
     @IBOutlet weak var UserProfileAddress: UILabel!
     
-    // action
-    // Log Out: method allows user to log out
+    // Log Out action: method allows user to log out
     @IBAction func LogOutButton(_ sender: Any) {
         if Auth.auth().currentUser != nil {
             do {
@@ -74,12 +73,8 @@ class UserViewController: UIViewController {
                     print("Document does not exist")
                 }
             }
-            
-            
-        } else{
+        } else {
             print("Not Logged In")
         }
     }
-    
-    
 }

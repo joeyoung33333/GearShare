@@ -21,9 +21,10 @@ class EditUserViewController: UIViewController {
     
     var profileEntryRef: DocumentReference!
     
-    // Function to update user profiles
+    // update user profiles
     @IBAction func EditUserDoneButton(_ sender: Any) {
-        if !(self.EditUserName.text == "" || self.EditUserAddress.text == ""){
+        if !(self.EditUserName.text == "" || self.EditUserAddress.text == "") {
+            
             let currUser = Auth.auth().currentUser
             let changeRequest = currUser?.createProfileChangeRequest()
             changeRequest?.displayName = self.EditUserName.text
@@ -32,7 +33,7 @@ class EditUserViewController: UIViewController {
                     // then try to update email
                     Auth.auth().currentUser?.updateEmail(to: String(self.EditUserEmail.text!)) { (error) in
                         if error == nil {
-                            //Update user profile entry
+                            // update user profile entry
                             self.profileEntryRef = Firestore.firestore().document("users/\(currUser!.uid)");
                             print(self.profileEntryRef)
                             print("Address \(self.EditUserAddress.text!)")
@@ -40,6 +41,7 @@ class EditUserViewController: UIViewController {
                                 "address": self.EditUserAddress.text!
                             ]) { err in
                                 if let err = err {
+                                    // display corresponding message for error
                                     print("Error in updating entry \(err)")
                                 } else {
                                     print("Update successful");
@@ -59,7 +61,7 @@ class EditUserViewController: UIViewController {
                             
                             vc.present(alertController, animated: true, completion: nil)
                             
-                        }else{
+                        } else {
                             // alert the user with the firebase error
                             let alertController = UIAlertController(title: "Error!", message: error?.localizedDescription, preferredStyle: .alert)
                             
@@ -79,9 +81,8 @@ class EditUserViewController: UIViewController {
                     self.present(alertController, animated: true, completion: nil)
                 }
             }
-        } else{
+        } else {
             // alert user if inputs are invalid
-            
             print("User did not enter an email or address")
             let alertController = UIAlertController(title: "Error!", message: "Please enter a name or address", preferredStyle: .alert)
             
@@ -104,7 +105,7 @@ class EditUserViewController: UIViewController {
             self.EditUserName.text = user.displayName
             let userProfileRef = Firestore.firestore().document("users/\(user.uid)");
             
-            //Pull user address from users db
+            // pull user address from users db
             userProfileRef.getDocument { (document, error) in
                 if let document = document, document.exists {
                     let userProfile = document.data()
@@ -113,12 +114,12 @@ class EditUserViewController: UIViewController {
                     print(userAddress)
                     self.EditUserAddress.text = userAddress
                 } else {
-                    //Show that user address has not been added
+                    // show that user address has not been added
                     self.EditUserAddress.text = "Not added"
                     print("Document does not exist")
                 }
             }
-        } else{
+        } else {
             print("Not Logged In")
         }
     }
