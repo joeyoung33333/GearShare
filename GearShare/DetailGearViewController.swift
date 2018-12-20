@@ -21,6 +21,8 @@ class DetailGearViewController: UIViewController {
     var getDate = String()
     var getImage = UIImage()
     var getStatus = String()
+    var getUser = String()
+    var getUserRating = String()
     
     @IBOutlet weak var inputUserRating: UITextField!
     @IBOutlet weak var denyBtn: RoundedButton!
@@ -28,9 +30,10 @@ class DetailGearViewController: UIViewController {
     // outlets to show information in a view
     @IBOutlet weak var approveBtn: RoundedButton!
     
+    @IBOutlet weak var detailUserRating: UILabel!
     @IBOutlet weak var detailImage: UIImageView!
     @IBOutlet weak var detailName: UILabel!
-    @IBOutlet weak var detailPrice: UILabel!
+    @IBOutlet weak var detailUser: UILabel!
     @IBOutlet weak var detailStartDate: UILabel!
     @IBOutlet weak var detailEndDate: UILabel!
     
@@ -112,6 +115,24 @@ class DetailGearViewController: UIViewController {
                     //let reqReturnDate = product?["req_return_date"] as? String ?? ""
                     print("Current rental user: \(currRentalUserID)")
                     
+                    docRef.updateData([
+                        "status": "available",
+                        "req_user_UID": "",
+                        "req_pick_up_date": "",
+                        "req_return_date": ""
+                    ]) { error in
+                        if let error = error {
+                            print("Error in updating entry \(error)")
+                            let alertController = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .alert)
+                            
+                            let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                            alertController.addAction(defaultAction)
+                            
+                            self.present(alertController, animated: true, completion: nil)
+                        }
+                        
+                    }
+                    
                     //docRef for user profile
                     let docRefUser = self.db.collection("users").document("\(currRentalUserID)")
                     
@@ -141,6 +162,8 @@ class DetailGearViewController: UIViewController {
         
         detailImage.image = getImage
         detailName.text = getName
+        detailUser.text = getUser
+        detailUserRating.text = getUserRating
         //detailPrice.text = getPrice
         print(getDate)
         if(getDate != "/"){
@@ -161,7 +184,7 @@ class DetailGearViewController: UIViewController {
             self.confirmBtn.isHidden = true
             self.denyBtn.isHidden = false
             self.approveBtn.isHidden = false
-            self.inputUserRating.isHidden = false
+            self.inputUserRating.isHidden = true
         }
         
         

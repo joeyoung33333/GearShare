@@ -81,7 +81,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         if let pImg = self.productImages[self.documents[indexPath.row]] {
             vc.getImage = pImg
         } else {
-            vc.getImage = UIImage(named: products[indexPath.row])!
+            vc.getImage = UIImage(named: "blank_camera")!
         }
         // set the variables of the new view being called
         vc.getPrice = prices[indexPath.row]

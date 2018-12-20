@@ -16,7 +16,7 @@ import FirebaseUI
 
 class GearViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var segmentBar: UISegmentedControl!
+    //@IBOutlet weak var segmentBar: UISegmentedControl!
     @IBOutlet weak var gearTable: UITableView!
     var db = Firestore.firestore()
     
@@ -27,6 +27,8 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var gearPrices = [String]()
     var gearRentalPeriod = [String]()
     var gearStatus = [String]()
+    var reqUsers = [String]()
+    var reqUsersRating = [String]()
     var userID: String!
     
     var productImages: [String: UIImage] = [:]
@@ -113,14 +115,16 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if let pImg = self.productImages[imageSlug] {
             vc.getImage = pImg
         } else {
-            vc.getImage = UIImage(named: gearItems[indexPath.row])!
+            vc.getImage = UIImage(named: "blank_camera")!
         }
         // set up next view controller to be shown
         vc.getPrice = gearPrices[indexPath.row]
         vc.getStatus = gearStatus[indexPath.row]
+        print(gearStatus[indexPath.row])
         vc.getName = gearItems[indexPath.row]
         vc.getDate = gearRentalPeriod[indexPath.row]
-        
+        vc.getUser = reqUsers[indexPath.row]
+        vc.getUserRating = reqUsersRating[indexPath.row]
         self.present(vc, animated: true, completion: nil)
     }
     
@@ -134,10 +138,14 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if let user = user {
             let userUID = user.uid
             userID = user.uid
+            /*
             var query = ""
             if (self.segmentBar.selectedSegmentIndex==0) {
                 query = "owner_UID"
+            } else {
+                //query
             }
+ */
             db.collection("items").whereField("owner_UID", isEqualTo: userUID)
                 .getDocuments() { (querySnapshot, error) in
                     if let error = error {
@@ -161,6 +169,26 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
                             self.gearRentalPeriod.append("\(reqStartDate)/\(reqEndDate)")
                             let statusStr = docData["status"] as! String
                             self.gearStatus.append(statusStr)
+                            let reqUser = docData["req_user_UID"] as! String
+                            self.reqUsers.append(reqUser)
+                            
+                            if (reqUser != "") {
+                                let docRef = self.db.collection("users").document("\(reqUser)")
+                                docRef.getDocument { (document, error) in
+                                    if let document = document, document.exists {
+                                        let userProfile = document.data()
+                                        let userRating = userProfile?["rating"] as? String ?? ""
+                                        print("Document data: \(userRating)")
+                                        self.reqUsersRating.append(userRating)
+                                    } else {
+                                        print("Document does not exist")
+                                        self.reqUsersRating.append("")
+                                    }
+                                }
+                            } else {
+                                self.reqUsersRating.append("")
+                            }
+                            
                             print("\(document.documentID) => \(document.data())")
                         }
                         // input the data into the table
