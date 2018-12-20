@@ -19,6 +19,8 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var gearTable: UITableView!
     var db = Firestore.firestore()
     
+
+    
     // test cases
     var gearItems = [String]()
     var gearPrices = [String]()
@@ -89,6 +91,14 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         return cell
     }
+    @IBAction func reloadButton(_ sender: Any) {
+        gearItems = [String]()
+        gearPrices = [String]()
+        gearRentalPeriod = [String]()
+        gearStatus = [String]()
+        self.loadData()
+        self.gearTable.reloadData()
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Row clicked")
@@ -112,15 +122,7 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.present(vc, animated: true, completion: nil)
     }
     
-    // function to load referenceURL for the item
-    func loadImageForItem(itemSlug: String) -> StorageReference {
-        let storageRef = Storage.storage().reference()
-        let reference = storageRef.child("\(itemSlug).png")
-        return reference
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func loadData(){
         self.gearTable.rowHeight = 200
         self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
@@ -160,9 +162,22 @@ class GearViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         print("GearViewController")
                         print(self.gearItems)
                     }
-                }
-            } else {
-                print("Unable to validate user and query their gear")
-                }
+            }
+        } else {
+            print("Unable to validate user and query their gear")
+        }
+    }
+    
+    // function to load referenceURL for the item
+    func loadImageForItem(itemSlug: String) -> StorageReference {
+        let storageRef = Storage.storage().reference()
+        let reference = storageRef.child("\(itemSlug).png")
+        return reference
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.loadData()
+        
             }
 }

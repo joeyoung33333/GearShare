@@ -156,6 +156,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func reloadData(_ sender: Any) {
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // set qualities of the table
